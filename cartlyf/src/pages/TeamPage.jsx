@@ -11,18 +11,9 @@ export default function TeamPage() {
     <div className="page-wrapper">
       <div className="page-header">
         <div className="page-header-content">
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="back-button"
-            onClick={() => navigate('/')}
-          >
-            <ArrowLeft size={18} />
-            Back to Home
-          </Button>
           <h1 className="page-header-title">Our Team</h1>
           <p className="page-header-description">
-            Meet the talented individuals building the future of African technology
+            The people building practical technology for Africa from Kitale, Kenya
           </p>
         </div>
       </div>

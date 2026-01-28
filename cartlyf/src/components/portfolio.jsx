@@ -3,8 +3,9 @@
 import { Card } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
-import { ExternalLink, Car, Users2, Sparkles, TrendingUp, Shield, MapPin, ArrowRight, X } from "lucide-react"
+import { ExternalLink, Users2, Sparkles, TrendingUp, Shield, MapPin, ArrowRight, X } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "../styles/portfolio.css"
 
 export default function Portfolio() {
@@ -12,6 +13,7 @@ export default function Portfolio() {
   const [activeProduct, setActiveProduct] = useState(0)
   const [isFlytsOpen, setIsFlytsOpen] = useState(false)
   const sectionRef = useRef(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,46 +39,46 @@ export default function Portfolio() {
   const products = [
     {
       name: "FLYTS",
-      tagline: "Drive. Earn. Empower.",
-      sector: "Mobility Technology",
+      tagline: "Car Rental Platform",
+      sector: "Transportation & Mobility",
       status: "Active Development",
-      description: "A peer-to-peer car rental marketplace—think Turo for Kenya—where car owners list their vehicles and renters book them seamlessly. FLYTS reduces paperwork, digitizes payments and contracts, and prioritizes safety for both owners and renters.",
+      description: "A modern car rental platform designed to make better use of underused vehicles by connecting car owners with renters through a secure and easy-to-use digital system. Focuses on flexibility, accessibility, and efficient vehicle utilization in growing urban and regional markets.",
       features: [
-        { icon: Shield, text: "KYC, Owner/Renter Verification & Insurance" },
-        { icon: MapPin, text: "GPS Telematics Tracking" },
-        { icon: TrendingUp, text: "Digital Contracts & Secure Payments" }
+        { icon: Shield, text: "Secure bookings and owner/renter verification" },
+        { icon: MapPin, text: "Efficient vehicle utilization and accessibility" },
+        { icon: TrendingUp, text: "Digital contracts and payments" }
       ],
-      year: "Launching 2025",
-      image: "/flyts.png",
+      year: "Launching soon",
+      image: "/FLYTS.png",
       color: "from-blue-500 to-cyan-500"
     },
     {
-      name: "Ungana Hub",
-      tagline: "Connect. Learn. Create.",
-      sector: "Social & Collaboration Platform",
-      status: "In Development",
-      description: "A platform empowering students, professionals, and innovators across the world to connect, learn, and create together. Ungana bridges the gap between talent and opportunity for hackathons, collaborations, and mentorship.",
+      name: "Timetable Scheduling System",
+      tagline: "Education & Institutional Automation",
+      sector: "Education Technology",
+      status: "Live",
+      description: "Our timetable scheduling system automates the creation of school and university timetables, eliminating conflicts and reducing the time spent on manual scheduling. Built to support institutions of different sizes while improving academic planning and operational efficiency.",
       features: [
-        { icon: Users2, text: "Team Formation & Networking" },
-        { icon: Sparkles, text: "Global Innovation Challenges" },
-        { icon: TrendingUp, text: "Professional Mentorship" }
+        { icon: Users2, text: "Conflict-free timetables" },
+        { icon: Sparkles, text: "Supports institutions of all sizes" },
+        { icon: TrendingUp, text: "Improved academic planning" }
       ],
-      year: "Coming Soon",
+      year: "Available",
       image: "/online-education-platform.png",
       color: "from-purple-500 to-pink-500"
     },
     {
-      name: "More Coming Soon",
-      tagline: "Innovation Never Stops",
-      sector: "Multiple Sectors",
-      status: "Ideation Phase",
-      description: "We're constantly exploring new opportunities to solve African challenges through technology. From fintech to agritech, e-commerce to healthtech - the future is bright.",
+      name: "NYTS App",
+      tagline: "Coming Soon",
+      sector: "Digital Products",
+      status: "In Development",
+      description: "NYTS is an upcoming digital product currently under development. More details will be shared as the product approaches launch.",
       features: [
-        { icon: Sparkles, text: "Africa-Focused Solutions" },
-        { icon: Users2, text: "Community-Driven Development" },
-        { icon: TrendingUp, text: "Sustainable Growth" }
+        { icon: Sparkles, text: "Under development" },
+        { icon: Users2, text: "Details coming soon" },
+        { icon: TrendingUp, text: "Stay tuned" }
       ],
-      year: "2025 & Beyond",
+      year: "Coming Soon",
       image: "/ai-technology-interface.jpg",
       color: "from-orange-500 to-red-500"
     },
@@ -85,17 +87,6 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="portfolio-section" ref={sectionRef}>
       <div className="portfolio-container">
-        <div className={`portfolio-header ${isVisible ? 'fade-in-up' : ''}`}>
-          <div className="section-badge">
-            <span className="badge-dot" />
-            Our Products
-          </div>
-          <h2 className="portfolio-title">Building Solutions That Matter</h2>
-          <p className="portfolio-description">
-            Each product we build is designed to solve real African problems with innovative, scalable, and sustainable technology solutions.
-          </p>
-        </div>
-
         <div className="portfolio-grid">
           {products.map((product, index) => (
             <Card 
@@ -119,7 +110,7 @@ export default function Portfolio() {
                     <h3 className="portfolio-company-name">{product.name}</h3>
                     <p className="portfolio-tagline">{product.tagline}</p>
                   </div>
-                  {product.name !== "More Coming Soon" && (
+                  {product.name !== "NYTS App" && (
                     <div className="portfolio-icon-wrapper">
                       <ExternalLink className="portfolio-icon" />
                     </div>
@@ -144,12 +135,12 @@ export default function Portfolio() {
 
                 <div className="portfolio-footer">
                   <span className="portfolio-year">{product.year}</span>
-                  {product.name !== "More Coming Soon" && (
+                  {product.name === "FLYTS" && (
                     <Button 
                       variant="ghost" 
                       size="sm" 
                       className="portfolio-learn-more"
-                      onClick={() => product.name === "FLYTS" ? setIsFlytsOpen(true) : null}
+                      onClick={() => setIsFlytsOpen(true)}
                     >
                       Learn More
                       <ArrowRight className="ml-2" size={14} />
@@ -172,11 +163,9 @@ export default function Portfolio() {
                   <img src="/flyts.png" alt="FLYTS preview" className="modal-image" />
                 </div>
                 <div className="modal-body">
-                  <h3 className="modal-title">FLYTS — Peer‑to‑Peer Car Rental</h3>
+                  <h3 className="modal-title">FLYTS – Car Rental Platform</h3>
                   <p className="modal-text">
-                    FLYTS is a Kenyan peer‑to‑peer car rental marketplace that digitizes the entire rental experience:
-                    listings, booking, contracts, insurance, and secure payments—reducing paperwork while keeping
-                    safety and trust at the center for both car owners and renters.
+                    FLYTS is a modern car rental platform designed to make better use of underused vehicles by connecting car owners with renters through a secure and easy-to-use digital system. The platform focuses on flexibility, accessibility, and efficient vehicle utilization in growing urban and regional markets.
                   </p>
                   <div className="modal-features">
                     <div className="modal-feature"><Shield size={16} /><span>KYC, verification & insurance</span></div>
@@ -197,13 +186,12 @@ export default function Portfolio() {
             <div className="cta-content">
               <Sparkles className="cta-icon" />
               <div>
-                <h3 className="cta-title">Want to Partner With Us?</h3>
+                <h3 className="cta-title">Partnerships & Opportunities</h3>
                 <p className="cta-description">
-                  We're always looking for talented individuals, strategic partners, and investors who share our vision 
-                  for Africa's digital future.
+                  We welcome partnerships with institutions, organizations, developers, and investors who share our vision of building practical and impactful technology solutions. Get in touch for collaboration, pilot programs, or strategic discussions.
                 </p>
               </div>
-              <Button size="lg" className="cta-button">
+              <Button size="lg" className="cta-button" onClick={() => { navigate('/'); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100) }}>
                 Get in Touch
               </Button>
             </div>

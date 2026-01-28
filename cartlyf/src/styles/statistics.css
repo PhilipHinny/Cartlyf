@@ -1,0 +1,133 @@
+.statistics-section {
+  padding: 0;
+  background: #fef3c7;
+}
+
+.statistics-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.statistics-card {
+  background: white;
+  border-radius: 0;
+  padding: 4rem;
+  color: #1a1f3a;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.statistics-card.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.statistics-badge {
+  display: inline-block;
+  color: #f59e0b;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.statistics-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: #1a1f3a;
+  margin: 0 0 2rem 0;
+}
+
+.statistics-description {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 1.8;
+}
+
+.statistics-description p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+}
+
+.statistics-item {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.statistics-item.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.statistics-item.delay-100 {
+  transition-delay: 0.1s;
+}
+
+.statistics-item.delay-200 {
+  transition-delay: 0.2s;
+}
+
+.statistics-item.delay-300 {
+  transition-delay: 0.3s;
+}
+
+.statistics-item.delay-400 {
+  transition-delay: 0.4s;
+}
+
+.statistics-item.delay-500 {
+  transition-delay: 0.5s;
+}
+
+.statistics-value {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #1a1f3a;
+  margin-bottom: 0.5rem;
+}
+
+.statistics-label {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.4;
+}
+
+@media (max-width: 968px) {
+  .statistics-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .statistics-card {
+    padding: 2.5rem;
+  }
+
+  .statistics-description {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .statistics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+

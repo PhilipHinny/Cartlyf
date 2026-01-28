@@ -35,23 +35,23 @@ export default function Team() {
     {
       name: "Agaba Jonan",
       role: "Co-founder",
-      image: "/placeholder-user.jpg",
+      image: "team 1.jpg",
       bio: "Entrepreneur focused on building practical technology that improves daily life across Africa.",
       social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "agaba@cartlyf.tech"
-      }
+        linkedin: "https://www.linkedin.com/in/jonan-agaba256",
+        twitter: "https://twitter.com/",
+        email: "jagaba@cartlyf.com"
+        }
     },
     {
       name: "Philip Hinny",
       role: "Co-founder",
-      image: "/placeholder-user.jpg",
+      image: "/team 2.png",
       bio: "Product-minded builder passionate about safe, trust-first digital platforms for African users.",
       social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "philip@cartlyf.tech"
+        linkedin: "https://www.linkedin.com/in/philip-hinny-196719374",
+        twitter: "https://twitter.com/",
+        email: "comphilip@cartlyf.com"
       }
     }
   ]
@@ -59,15 +59,7 @@ export default function Team() {
   return (
     <section id="team" className="team-section" ref={sectionRef}>
       <div className="team-container">
-        <div className={`team-header ${isVisible ? 'fade-in-up' : ''}`}>
-          <div className="section-badge">
-            <span className="badge-dot" />
-            Our Team
-          </div>
-          <h2 className="team-title">Founders</h2>
-          <p className="team-description">
-            CartLyf Technologies was founded in September 2025 by Agaba Jonan and Philip Hinny—building African technology that puts safety, trust, and everyday usefulness first.
-          </p>
+        <div className={`team-header ${isVisible ? 'fade-in-up' : ''}`}>  
         </div>
 
         <div className="team-grid">

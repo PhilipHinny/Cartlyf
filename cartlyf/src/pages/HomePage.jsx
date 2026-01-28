@@ -1,21 +1,19 @@
-import Hero from "../components/hero"
+import ModernHero from "../components/modern-hero"
+import ModernAbout from "../components/modern-about"
+import PortfolioSnapshot from "../components/portfolio-snapshot"
 import FocusAreas from "../components/focus-areas"
-import About from "../components/about"
-import PortfolioPreview from "../components/portfolio-preview"
-import Blog from "../components/blog"
-import Investment from "../components/investment"
-import Contact from "../components/contact"
+import ModernNews from "../components/modern-news"
+import ModernContact from "../components/modern-contact"
 
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <ModernHero />
+      <ModernAbout />
+      <PortfolioSnapshot />
       <FocusAreas />
-      <About />
-      <PortfolioPreview />
-      <Blog />
-      <Investment />
-      <Contact />
+      <ModernNews />
+      <ModernContact />
     </>
   )
 }

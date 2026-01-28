@@ -223,8 +223,26 @@ button[size="xl"],
 }
 
 .fade-in-up {
-  opacity: 1;
-  transform: translateY(0);
+  animation: fade-in-up 0.8s ease forwards;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+  transition: all 0.2s ease;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced hover effects */
+.card, .modern-about-card, .timeline-card, .statistics-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover, .modern-about-card:hover, .timeline-card:hover, .statistics-card:hover {
+  transform: translateY(-4px);
 }
 
 /* Selection color */

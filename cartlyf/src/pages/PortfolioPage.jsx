@@ -11,18 +11,9 @@ export default function PortfolioPage() {
     <div className="page-wrapper">
       <div className="page-header">
         <div className="page-header-content">
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="back-button"
-            onClick={() => navigate('/')}
-          >
-            <ArrowLeft size={18} />
-            Back to Home
-          </Button>
-          <h1 className="page-header-title">Our Portfolio</h1>
+          <h1 className="page-header-title">Our Products</h1>
           <p className="page-header-description">
-            Explore our complete portfolio of innovative products and solutions
+            Technology products that improve efficiency, accessibility, and resource utilization
           </p>
         </div>
       </div>
