@@ -33,8 +33,8 @@ export default function AboutPage() {
   }, [])
 
   const focusAreas = [
-    { icon: Award, title: "Transportation & Mobility Technology", description: "Platforms and tools that improve how people and goods move, including our FLYTS car rental platform." },
-    { icon: Target, title: "Education & Scheduling Automation", description: "Systems that automate timetables and institutional planning, saving time and reducing conflicts." },
+    { icon: Award, title: "Transportation & Mobility Technology", description: "Platforms and digital infrastructure that modernize mobility, including our FLYTS car rental technology layer." },
+    { icon: Target, title: "Education & Scheduling Automation", description: "Intelligent systems that automate complex academic scheduling, saving time and eliminating institutional conflicts." },
     { icon: Lightbulb, title: "Artificial Intelligence & Smart Digital Systems", description: "Modern software and AI-powered tools that unlock value from underused resources." },
     { icon: Users, title: "Scalable Web and Mobile Platforms", description: "Digital products built for African markets with the flexibility to scale globally." }
   ]

@@ -31,22 +31,24 @@ export default function Footer() {
     <footer className="modern-footer-container">
       <div className="modern-footer-content">
         <div className="modern-footer-upper">
-          <Link to="/" className="modern-footer-logo" onClick={scrollToTop}>
-            <div className="modern-footer-logo-wrapper">
-            <div className="modern-footer-logo-text">
-              <div className="modern-footer-logo-name">Cartlyf</div>
-              <div className="modern-footer-logo-tagline">TECHNOLOGIES LIMITED</div>
-            </div>
+          <div className="modern-footer-logo-section">
+            <Link to="/" className="modern-footer-logo" onClick={scrollToTop}>
+              <div className="modern-footer-logo-wrapper">
+              <div className="modern-footer-logo-text">
+                <div className="modern-footer-logo-name">Cartlyf</div>
+                <div className="modern-footer-logo-tagline">TECHNOLOGIES LIMITED</div>
+              </div>
+              </div>
+            </Link>
             <div className="modern-footer-social">
-              <a href="#" className="modern-footer-social-link" aria-label="Twitter">
+              <button className="modern-footer-social-link" aria-label="Twitter" onClick={() => window.open('#', '_blank')}>
                 <Twitter size={20} />
-              </a>
-              <a href="#" className="modern-footer-social-link" aria-label="LinkedIn">
+              </button>
+              <button className="modern-footer-social-link" aria-label="LinkedIn" onClick={() => window.open('#', '_blank')}>
                 <Linkedin size={20} />
-              </a>
+              </button>
             </div>
-            </div>
-          </Link>
+          </div>
           <div className="modern-footer-links-grid">
             <div className="modern-footer-links-column">
               <h4 className="modern-footer-links-title">Navigation</h4>
@@ -97,7 +99,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <span className="modern-footer-contact-label">Email:</span>
-                  <a href="mailto:info@cartlyf.com" className="modern-footer-link">info@cartlyf.com</a>
+                  <a href="mailto:info@cartlyf.com" className="modern-footer-link" aria-label="Email Cartlyf">info@cartlyf.com</a>
                 </li>
               </ul>
             </div>

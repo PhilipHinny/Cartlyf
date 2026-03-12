@@ -28,8 +28,8 @@ export default function FocusAreas() {
   }, [])
 
   const areas = [
-    { icon: Car, title: "Transportation & Mobility Technology", description: "Platforms that improve how people and goods move, including our FLYTS car rental platform." },
-    { icon: GraduationCap, title: "Education & Scheduling Automation", description: "Systems that automate timetables and institutional planning for schools and universities." },
+    { icon: Car, title: "Transportation & Mobility Technology", description: "Digital infrastructure and platforms that modernize mobility, including our FLYTS car rental technology layer." },
+    { icon: GraduationCap, title: "Education & Scheduling Automation", description: "Intelligent systems that automate complex academic scheduling for schools and universities, eliminating conflicts." },
     { icon: Cpu, title: "Artificial Intelligence & Smart Digital Systems", description: "Modern software and AI-powered tools that unlock value from underused resources." },
     { icon: Smartphone, title: "Scalable Web and Mobile Platforms", description: "Digital products built for African markets with the flexibility to scale globally." }
   ]

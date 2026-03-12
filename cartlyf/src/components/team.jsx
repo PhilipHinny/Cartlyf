@@ -51,7 +51,7 @@ export default function Team() {
       social: {
         linkedin: "https://www.linkedin.com/in/philip-hinny-196719374",
         twitter: "https://twitter.com/",
-        email: "comphilip@cartlyf.com"
+        email: "hphilip@cartlyf.com"
       }
     }
   ]
@@ -83,7 +83,11 @@ export default function Team() {
                     <a href={member.social.twitter} className="team-social-link">
                       <Twitter size={18} />
                     </a>
-                    <a href={`mailto:${member.social.email}`} className="team-social-link">
+                    <a
+                      href={`mailto:${member.social.email}`}
+                      className="team-social-link"
+                      aria-label={`Email ${member.name}`}
+                    >
                       <Mail size={18} />
                     </a>
                   </div>

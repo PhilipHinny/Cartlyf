@@ -32,19 +32,19 @@ export default function PortfolioSnapshot() {
 
   const portfolioItems = [
     {
-      title: "FLYTS – Car Rental Platform",
+      title: "FLYTS – Smart Digital Infrastructure",
       image: "/FLYTS.png",
-      description: "A modern car rental platform that connects car owners with renters through a secure, easy-to-use digital system. Focuses on flexibility, accessibility, and efficient vehicle utilization in growing urban and regional markets."
+      description: "A digital platform modernizing the car rental industry by connecting fleets with verified customers through a secure digital booking environment."
+    },
+    {
+      title: "HAPA – Live City Discovery",
+      image: "/HAPA_APP.png",
+      description: "A real-time city discovery platform that provides a live window into a city's energy through moment-to-moment photos and videos."
     },
     {
       title: "Timetable Scheduling Automation",
       image: "/online-education-platform.png",
-      description: "Automates the creation of school and university timetables, eliminating conflicts and reducing manual scheduling time. Built to support institutions of different sizes while improving academic planning and operational efficiency."
-    },
-    {
-      title: "NYTS App (Coming Soon)",
-      image: "/ai-technology-interface.jpg",
-      description: "An upcoming digital product currently under development. More details will be shared as the product approaches launch."
+      description: "Intelligent academic scheduling that automates the creation of school and university timetables, eliminating conflicts and manual coordination."
     }
   ]
 
@@ -57,8 +57,8 @@ export default function PortfolioSnapshot() {
             Technology products that improve efficiency, accessibility, and resource utilization.
           </h2>
           <div className="portfolio-snapshot-cta">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="portfolio-snapshot-button"
               onClick={() => navigate('/portfolio')}
             >
@@ -68,8 +68,8 @@ export default function PortfolioSnapshot() {
           </div>
           <div className="portfolio-snapshot-grid">
             {portfolioItems.map((item, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`portfolio-snapshot-item ${isVisible ? `fade-in-up delay-${(index + 1) * 200}` : ''}`}
               >
                 <div className="portfolio-snapshot-image">

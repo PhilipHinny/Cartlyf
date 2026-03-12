@@ -3,7 +3,16 @@
 import { Card } from "../components/ui/card"
 import { Badge } from "../components/ui/badge"
 import { Button } from "../components/ui/button"
-import { ExternalLink, Users2, Sparkles, TrendingUp, Shield, MapPin, ArrowRight, X } from "lucide-react"
+import {
+  ExternalLink,
+  Users2,
+  Sparkles,
+  TrendingUp,
+  Shield,
+  MapPin,
+  ArrowRight,
+  X
+} from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "../styles/portfolio.css"
@@ -12,6 +21,8 @@ export default function Portfolio() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeProduct, setActiveProduct] = useState(0)
   const [isFlytsOpen, setIsFlytsOpen] = useState(false)
+  const [isHapaOpen, setIsHapaOpen] = useState(false)
+  const [isTIMETABLEOPEN, setIsTIMETABLEOPEN] = useState(false)
   const sectionRef = useRef(null)
   const navigate = useNavigate()
 
@@ -39,49 +50,53 @@ export default function Portfolio() {
   const products = [
     {
       name: "FLYTS",
-      tagline: "Car Rental Platform",
+      tagline: "Smart Digital Infrastructure for Car Rentals",
       sector: "Transportation & Mobility",
-      status: "Active Development",
-      description: "A modern car rental platform designed to make better use of underused vehicles by connecting car owners with renters through a secure and easy-to-use digital system. Focuses on flexibility, accessibility, and efficient vehicle utilization in growing urban and regional markets.",
+      status: "Active",
+      link: "https://flyts-app.web.app",
+      description:
+        "A digital platform designed to modernize the car rental industry by connecting rental fleets with verified customers through a secure and structured booking environment.",
       features: [
-        { icon: Shield, text: "Secure bookings and owner/renter verification" },
-        { icon: MapPin, text: "Efficient vehicle utilization and accessibility" },
-        { icon: TrendingUp, text: "Digital contracts and payments" }
+        { icon: Shield, text: "Secure Digital Booking & Verification" },
+        { icon: MapPin, text: "Centralized Vehicle Listings" },
+        { icon: TrendingUp, text: "Data & Market Insights" }
       ],
-      year: "Launching soon",
+      year: "2025",
       image: "/FLYTS.png",
       color: "from-blue-500 to-cyan-500"
     },
     {
-      name: "Timetable Scheduling System",
-      tagline: "Education & Institutional Automation",
-      sector: "Education Technology",
-      status: "Live",
-      description: "Our timetable scheduling system automates the creation of school and university timetables, eliminating conflicts and reducing the time spent on manual scheduling. Built to support institutions of different sizes while improving academic planning and operational efficiency.",
+      name: "HAPA",
+      tagline: "The Live City Discovery App",
+      sector: "Lifestyle & Entertainment",
+      status: "Active",
+      description:
+        "HAPA provides a live window into a city's real energy through photos and videos posted directly by venues and organizers in the moment.",
       features: [
-        { icon: Users2, text: "Conflict-free timetables" },
-        { icon: Sparkles, text: "Supports institutions of all sizes" },
-        { icon: TrendingUp, text: "Improved academic planning" }
+        { icon: Sparkles, text: "Real-time City Discovery" },
+        { icon: MapPin, text: "Location-aware Experience Feed" },
+        { icon: Users2, text: "Direct Venue Engagement" }
       ],
-      year: "Available",
-      image: "/online-education-platform.png",
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      name: "NYTS App",
-      tagline: "Coming Soon",
-      sector: "Digital Products",
-      status: "In Development",
-      description: "NYTS is an upcoming digital product currently under development. More details will be shared as the product approaches launch.",
-      features: [
-        { icon: Sparkles, text: "Under development" },
-        { icon: Users2, text: "Details coming soon" },
-        { icon: TrendingUp, text: "Stay tuned" }
-      ],
-      year: "Coming Soon",
-      image: "/ai-technology-interface.jpg",
+      year: "2026",
+      image: "/HAPA_APP.png",
       color: "from-orange-500 to-red-500"
     },
+    {
+      name: "Timetable Scheduling System",
+      tagline: "Intelligent Academic Scheduling",
+      sector: "Education Technology",
+      status: "Available",
+      description:
+        "An intelligent academic scheduling platform designed to automate the complex process of creating school and university timetables without conflicts.",
+      features: [
+        { icon: Users2, text: "Automated Schedule Generation" },
+        { icon: Sparkles, text: "Conflict Detection & Prevention" },
+        { icon: TrendingUp, text: "Institutional Efficiency" }
+      ],
+      year: "2025",
+      image: "/online-education-platform.png",
+      color: "from-purple-500 to-pink-500"
+    }
   ]
 
   return (
@@ -89,14 +104,19 @@ export default function Portfolio() {
       <div className="portfolio-container">
         <div className="portfolio-grid">
           {products.map((product, index) => (
-            <Card 
-              key={index} 
-              className={`portfolio-card ${isVisible ? 'fade-in-up' : ''} ${activeProduct === index ? 'active' : ''}`}
+            <Card
+              key={index}
+              className={`portfolio-card ${isVisible ? "fade-in-up" : ""} ${activeProduct === index ? "active" : ""
+                }`}
               style={{ transitionDelay: `${index * 0.2}s` }}
               onMouseEnter={() => setActiveProduct(index)}
             >
               <div className="portfolio-image-container">
-                <img src={product.image || "/placeholder.svg"} alt={product.name} className="portfolio-image" />
+                <img
+                  src={product.image || "/placeholder.svg"}
+                  alt={product.name}
+                  className="portfolio-image"
+                />
                 <div className={`portfolio-gradient-overlay ${product.color}`} />
                 <div className="portfolio-badge-container">
                   <Badge variant="secondary" className="portfolio-status-badge">
@@ -104,23 +124,33 @@ export default function Portfolio() {
                   </Badge>
                 </div>
               </div>
+
               <div className="portfolio-content">
                 <div className="portfolio-header-row">
                   <div>
                     <h3 className="portfolio-company-name">{product.name}</h3>
                     <p className="portfolio-tagline">{product.tagline}</p>
                   </div>
-                  {product.name !== "NYTS App" && (
-                    <div className="portfolio-icon-wrapper">
+
+                  {product.link && (
+                    <button
+                      className="portfolio-icon-wrapper"
+                      onClick={() => window.open(product.link, "_blank")}
+                      aria-label={`Visit ${product.name}`}
+                    >
                       <ExternalLink className="portfolio-icon" />
-                    </div>
+                    </button>
                   )}
                 </div>
+
                 <Badge variant="outline" className="portfolio-sector-badge">
                   {product.sector}
                 </Badge>
-                <p className="portfolio-company-description">{product.description}</p>
-                
+
+                <p className="portfolio-company-description">
+                  {product.description}
+                </p>
+
                 <div className="portfolio-features">
                   {product.features.map((feature, idx) => {
                     const Icon = feature.icon
@@ -136,11 +166,33 @@ export default function Portfolio() {
                 <div className="portfolio-footer">
                   <span className="portfolio-year">{product.year}</span>
                   {product.name === "FLYTS" && (
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
+                    <Button
+                      variant="ghost"
+                      size="sm"
                       className="portfolio-learn-more"
                       onClick={() => setIsFlytsOpen(true)}
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2" size={14} />
+                    </Button>
+                  )}
+                  {product.name === "HAPA" && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="portfolio-learn-more"
+                      onClick={() => setIsHapaOpen(true)}
+                    >
+                      Learn More
+                      <ArrowRight className="ml-2" size={14} />
+                    </Button>
+                  )}
+                  {product.name === "Timetable Scheduling System" && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="portfolio-learn-more"
+                      onClick={() => setIsTIMETABLEOPEN(true)}
                     >
                       Learn More
                       <ArrowRight className="ml-2" size={14} />
@@ -155,25 +207,66 @@ export default function Portfolio() {
         {isFlytsOpen && (
           <div className="modal-backdrop" onClick={() => setIsFlytsOpen(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" aria-label="Close" onClick={() => setIsFlytsOpen(false)}>
+              <button
+                className="modal-close"
+                aria-label="Close"
+                onClick={() => setIsFlytsOpen(false)}
+              >
                 <X size={18} />
               </button>
+
               <div className="modal-grid">
                 <div className="modal-image-wrap">
-                  <img src="/flyts.png" alt="FLYTS preview" className="modal-image" />
+                  <img
+                    src="/FLYTSAPP.png"
+                    alt="FLYTS preview"
+                    className="modal-image"
+                  />
                 </div>
+
                 <div className="modal-body">
-                  <h3 className="modal-title">FLYTS – Car Rental Platform</h3>
+                  <h3 className="modal-title">
+                    FLYTS – Smart Digital Infrastructure for Car Rentals
+                  </h3>
+
                   <p className="modal-text">
-                    FLYTS is a modern car rental platform designed to make better use of underused vehicles by connecting car owners with renters through a secure and easy-to-use digital system. The platform focuses on flexibility, accessibility, and efficient vehicle utilization in growing urban and regional markets.
+                    FLYTS is a digital platform designed to modernize the car rental industry by connecting rental fleets with verified customers through a secure and structured booking environment.
                   </p>
+
                   <div className="modal-features">
-                    <div className="modal-feature"><Shield size={16} /><span>KYC, verification & insurance</span></div>
-                    <div className="modal-feature"><MapPin size={16} /><span>GPS telematics tracking</span></div>
-                    <div className="modal-feature"><TrendingUp size={16} /><span>Digital contracts & payments</span></div>
+                    <div className="modal-feature">
+                      <Shield size={16} />
+                      <span>Security & Digital Verification Layer</span>
+                    </div>
+                    <div className="modal-feature">
+                      <MapPin size={16} />
+                      <span>Centralized Fleet & Booking Management</span>
+                    </div>
+                    <div className="modal-feature">
+                      <TrendingUp size={16} />
+                      <span>Utilization & Revenue Analytics</span>
+                    </div>
                   </div>
+
+                  <div className="modal-sections">
+                    <div className="modal-section">
+                      <h4>Demand Aggregation</h4>
+                      <p>Connects rental companies with high-intent customers, increasing visibility and revenue opportunities for fleet owners.</p>
+                    </div>
+                    <div className="modal-section">
+                      <h4>Structured Listings</h4>
+                      <p>Standardized information including pricing, availability, and insurance, reducing negotiation friction.</p>
+                    </div>
+                    <div className="modal-section">
+                      <h4>Trust & Safety</h4>
+                      <p>Integrated customer verification and secure booking frameworks that protect both renters and operators.</p>
+                    </div>
+                  </div>
+
                   <div className="modal-actions">
-                    <Button size="lg" onClick={() => setIsFlytsOpen(false)}>Got it</Button>
+                    <Button size="lg" onClick={() => setIsFlytsOpen(false)}>
+                      Got it
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -181,17 +274,171 @@ export default function Portfolio() {
           </div>
         )}
 
-        <div className={`portfolio-cta ${isVisible ? 'fade-in-up delay-600' : ''}`}>
+        {isHapaOpen && (
+          <div className="modal-backdrop" onClick={() => setIsHapaOpen(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button
+                className="modal-close"
+                aria-label="Close"
+                onClick={() => setIsHapaOpen(false)}
+              >
+                <X size={18} />
+              </button>
+
+              <div className="modal-grid">
+                <div className="modal-image-wrap">
+                  <img
+                    src="/HAPA_APP.png"
+                    alt="HAPA preview"
+                    className="modal-image"
+                  />
+                </div>
+
+                <div className="modal-body">
+                  <h3 className="modal-title">
+                    HAPA – The Live City Discovery App
+                  </h3>
+
+                  <p className="modal-text">
+                    A real-time city discovery platform that helps people find what’s happening around them right now through a live window of photos and videos.
+                  </p>
+
+                  <div className="modal-features">
+                    <div className="modal-feature">
+                      <Sparkles size={16} />
+                      <span>Live Vibe & Energy Check</span>
+                    </div>
+                    <div className="modal-feature">
+                      <MapPin size={16} />
+                      <span>Location-aware Experience Feed</span>
+                    </div>
+                    <div className="modal-feature">
+                      <Users2 size={16} />
+                      <span>Authentic Venue Engagement</span>
+                    </div>
+                  </div>
+
+                  <div className="modal-sections">
+                    <div className="modal-section">
+                      <h4>Spontaneous Discovery</h4>
+                      <p>See real photos and videos from venues as events unfold, allowing you to make instant decisions based on the actual vibe.</p>
+                    </div>
+                    <div className="modal-section">
+                      <h4>Experiences</h4>
+                      <p>Discover nightlife, dining, concerts, arts, culture, and community events happening today, tonight, or this weekend.</p>
+                    </div>
+                    <div className="modal-section">
+                      <h4>For Venues</h4>
+                      <p>Reach nearby users instantly by simply posting what is happening right now—authentic, immediate, and effective.</p>
+                    </div>
+                  </div>
+
+                  <div className="modal-actions">
+                    <Button size="lg" onClick={() => setIsHapaOpen(false)}>
+                      Got it
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {isTIMETABLEOPEN && (
+          <div className="modal-backdrop" onClick={() => setIsTIMETABLEOPEN(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button
+                className="modal-close"
+                aria-label="Close"
+                onClick={() => setIsTIMETABLEOPEN(false)}
+              >
+                <X size={18} />
+              </button>
+
+              <div className="modal-grid">
+                <div className="modal-image-wrap">
+                  <img
+                    src="/online-education-platform.png"
+                    alt="Timetable System preview"
+                    className="modal-image"
+                  />
+                </div>
+
+                <div className="modal-body">
+                  <h3 className="modal-title">
+                    Intelligent Timetable Automation
+                  </h3>
+
+                  <p className="modal-text">
+                    An intelligent academic scheduling platform designed to automate the complex process of creating conflict-free schedules for schools and universities.
+                  </p>
+
+                  <div className="modal-features">
+                    <div className="modal-feature">
+                      <Users2 size={16} />
+                      <span>Automated Generation & Optimization</span>
+                    </div>
+                    <div className="modal-feature">
+                      <Sparkles size={16} />
+                      <span>Constraint-based Logic (Rooms/Staff)</span>
+                    </div>
+                    <div className="modal-feature">
+                      <TrendingUp size={16} />
+                      <span>Massive Administrative Efficiency</span>
+                    </div>
+                  </div>
+
+                  <div className="modal-sections">
+                    <div className="modal-section">
+                      <h4>Key Capabilities</h4>
+                      <p>Automated generation, conflict detection, and flexible scheduling rules for course durations and lecturer availability.</p>
+                    </div>
+                    <div className="modal-section">
+                      <h4>Who It's For</h4>
+                      <p>Designed for Universities, Colleges, Secondary Schools, and Training Institutions of all sizes.</p>
+                    </div>
+                    <div className="modal-section">
+                      <h4>Impact</h4>
+                      <p>Reduces scheduling time from weeks to minutes, allowing institutions to focus on delivering quality education.</p>
+                    </div>
+                  </div>
+
+                  <div className="modal-actions">
+                    <Button size="lg" onClick={() => setIsTIMETABLEOPEN(false)}>
+                      Got it
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className={`portfolio-cta ${isVisible ? "fade-in-up delay-600" : ""}`}>
           <Card className="cta-card">
             <div className="cta-content">
               <Sparkles className="cta-icon" />
               <div>
                 <h3 className="cta-title">Partnerships & Opportunities</h3>
                 <p className="cta-description">
-                  We welcome partnerships with institutions, organizations, developers, and investors who share our vision of building practical and impactful technology solutions. Get in touch for collaboration, pilot programs, or strategic discussions.
+                  We welcome partnerships with institutions, organizations,
+                  developers, and investors who share our vision.
                 </p>
               </div>
-              <Button size="lg" className="cta-button" onClick={() => { navigate('/'); setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100) }}>
+              <Button
+                size="lg"
+                className="cta-button"
+                onClick={() => {
+                  navigate("/")
+                  setTimeout(
+                    () =>
+                      document
+                        .getElementById("contact")
+                        ?.scrollIntoView({ behavior: "smooth" }),
+                    100
+                  )
+                }}
+              >
                 Get in Touch
               </Button>
             </div>
