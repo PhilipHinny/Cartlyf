@@ -1,18 +1,13 @@
 import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useForm, ValidationError } from '@formspree/react'
 import { Button } from "./ui/button"
 import { ChevronDown } from "lucide-react"
 import "../styles/modern-contact.css"
 
 export default function ModernContact() {
   const [isVisible, setIsVisible] = useState(false)
-  const [formData, setFormData] = useState({
-    subject: '',
-    fullName: '',
-    phone: '',
-    email: '',
-    comments: ''
-  })
+  const [state, handleSubmit] = useForm("xkoqzakw")
   const sectionRef = useRef(null)
   const navigate = useNavigate()
 
@@ -42,19 +37,6 @@ export default function ModernContact() {
     }
   }, [])
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
-  }
-
   return (
     <section id="contact" ref={sectionRef} className="modern-contact-section">
       <div className="modern-contact-container">
@@ -71,74 +53,78 @@ export default function ModernContact() {
             </div>
           </div>
           <div className="modern-contact-right">
-            <h3 className="modern-contact-form-title">Please fill out the form.</h3>
-            <form onSubmit={handleSubmit} className="modern-contact-form">
-              <div className="modern-contact-form-group">
-                <div className="modern-contact-select-wrapper">
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="modern-contact-select"
-                    required
-                  >
-                    <option value="">Choose subject</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="partnership">Partnership & Collaboration</option>
-                    <option value="pilot">Pilot Programs</option>
-                    <option value="careers">Careers</option>
-                  </select>
-                  <ChevronDown size={20} className="modern-contact-select-icon" />
+            <h3 className="modern-contact-form-title">
+              {state.succeeded ? "Message Sent!" : "Please fill out the form."}
+            </h3>
+            {state.succeeded ? (
+              <p style={{ color: '#22c55e', marginTop: '1rem', textAlign: 'center' }}>
+                Thanks for your submission! We will get back to you soon.
+              </p>
+            ) : (
+              <form onSubmit={handleSubmit} className="modern-contact-form">
+                <div className="modern-contact-form-group">
+                  <div className="modern-contact-select-wrapper">
+                    <select
+                      name="subject"
+                      className="modern-contact-select"
+                      required
+                    >
+                      <option value="">Choose subject</option>
+                      <option value="general">General Inquiry</option>
+                      <option value="partnership">Partnership & Collaboration</option>
+                      <option value="pilot">Pilot Programs</option>
+                      <option value="careers">Careers</option>
+                    </select>
+                    <ChevronDown size={20} className="modern-contact-select-icon" />
+                    <ValidationError prefix="Subject" field="subject" errors={state.errors} />
+                  </div>
                 </div>
-              </div>
-              <div className="modern-contact-form-group">
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Full name"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  className="modern-contact-input"
-                  required
-                />
-              </div>
-              <div className="modern-contact-form-group">
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="modern-contact-input"
-                  required
-                />
-              </div>
-              <div className="modern-contact-form-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="E-mail"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="modern-contact-input"
-                  required
-                />
-              </div>
-              <div className="modern-contact-form-group">
-                <textarea
-                  name="comments"
-                  placeholder="Comments"
-                  value={formData.comments}
-                  onChange={handleChange}
-                  className="modern-contact-textarea"
-                  rows="4"
-                  required
-                ></textarea>
-              </div>
-              <Button type="submit" size="lg" className="modern-contact-submit">
-                Send
-              </Button>
-            </form>
+                <div className="modern-contact-form-group">
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Full name"
+                    className="modern-contact-input"
+                    required
+                  />
+                  <ValidationError prefix="Full Name" field="fullName" errors={state.errors} />
+                </div>
+                <div className="modern-contact-form-group">
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone"
+                    className="modern-contact-input"
+                    required
+                  />
+                  <ValidationError prefix="Phone" field="phone" errors={state.errors} />
+                </div>
+                <div className="modern-contact-form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="E-mail"
+                    className="modern-contact-input"
+                    required
+                  />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} />
+                </div>
+                <div className="modern-contact-form-group">
+                  <textarea
+                    name="comments"
+                    placeholder="Comments"
+                    className="modern-contact-textarea"
+                    rows="4"
+                    required
+                  ></textarea>
+                  <ValidationError prefix="Comments" field="comments" errors={state.errors} />
+                </div>
+                <Button type="submit" size="lg" className="modern-contact-submit" disabled={state.submitting}>
+                  {state.submitting ? 'Sending...' : 'Send'}
+                </Button>
+                <ValidationError errors={state.errors} />
+              </form>
+            )}
           </div>
         </div>
       </div>

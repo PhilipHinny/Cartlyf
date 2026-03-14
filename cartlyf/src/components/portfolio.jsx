@@ -50,12 +50,12 @@ export default function Portfolio() {
   const products = [
     {
       name: "FLYTS",
-      tagline: "Smart Digital Infrastructure for Car Rentals",
+      tagline: "Powering Car Rentals",
       sector: "Transportation & Mobility",
       status: "Active",
       link: "https://flyts-app.web.app",
       description:
-        "A digital platform designed to modernize the car rental industry by connecting rental fleets with verified customers through a secure and structured booking environment.",
+        "A digital platform digitizing the car rental industry by connecting fleets with verified customers through a secure digital booking environment.",
       features: [
         { icon: Shield, text: "Secure Digital Booking & Verification" },
         { icon: MapPin, text: "Centralized Vehicle Listings" },
@@ -67,9 +67,10 @@ export default function Portfolio() {
     },
     {
       name: "HAPA",
-      tagline: "The Live City Discovery App",
+      tagline: "Discover the City",
       sector: "Lifestyle & Entertainment",
       status: "Active",
+      link: "https://hapa-app.web.app",
       description:
         "HAPA provides a live window into a city's real energy through photos and videos posted directly by venues and organizers in the moment.",
       features: [
@@ -86,6 +87,7 @@ export default function Portfolio() {
       tagline: "Intelligent Academic Scheduling",
       sector: "Education Technology",
       status: "Available",
+      link: "https://cartlyf-timetable-scheduling-system.web.app",
       description:
         "An intelligent academic scheduling platform designed to automate the complex process of creating school and university timetables without conflicts.",
       features: [
@@ -226,11 +228,11 @@ export default function Portfolio() {
 
                 <div className="modal-body">
                   <h3 className="modal-title">
-                    FLYTS – Smart Digital Infrastructure for Car Rentals
+                    FLYTS – Powering Car Rentals
                   </h3>
 
                   <p className="modal-text">
-                    FLYTS is a digital platform designed to modernize the car rental industry by connecting rental fleets with verified customers through a secure and structured booking environment.
+                    FLYTS is a digital platform designed to digitize the car rental industry by connecting rental fleets with verified customers through a secure and structured booking environment.
                   </p>
 
                   <div className="modal-features">
@@ -296,11 +298,11 @@ export default function Portfolio() {
 
                 <div className="modal-body">
                   <h3 className="modal-title">
-                    HAPA – The Live City Discovery App
+                    HAPA – Discover the City
                   </h3>
 
                   <p className="modal-text">
-                    A real-time city discovery platform that helps people find what’s happening around them right now through a live window of photos and videos.
+                    A real-time city discovery platform that provides a live feed of a city's vibe through moment-to-moment photos and videos.
                   </p>
 
                   <div className="modal-features">

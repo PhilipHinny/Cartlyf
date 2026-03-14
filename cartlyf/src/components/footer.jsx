@@ -34,10 +34,10 @@ export default function Footer() {
           <div className="modern-footer-logo-section">
             <Link to="/" className="modern-footer-logo" onClick={scrollToTop}>
               <div className="modern-footer-logo-wrapper">
-              <div className="modern-footer-logo-text">
-                <div className="modern-footer-logo-name">Cartlyf</div>
-                <div className="modern-footer-logo-tagline">TECHNOLOGIES LIMITED</div>
-              </div>
+                <div className="modern-footer-logo-text">
+                  <div className="modern-footer-logo-name">Cartlyf</div>
+                  <div className="modern-footer-logo-tagline">TECHNOLOGIES LIMITED</div>
+                </div>
               </div>
             </Link>
             <div className="modern-footer-social">
@@ -98,6 +98,11 @@ export default function Footer() {
                   <span className="modern-footer-link">Cartlyf Technologies Limited, Kitale, Kenya</span>
                 </li>
                 <li>
+                  <span className="modern-footer-contact-label">Phone:</span>
+                  <a href="tel:+254714968636" className="modern-footer-link" aria-label="Call Cartlyf (+254 714 968 636)">+254 714 968 636</a>
+                  <a href="tel:+254716857147" className="modern-footer-link" aria-label="Call Cartlyf (+254 716 857 147)">+254 716 857 147</a>
+                </li>
+                <li>
                   <span className="modern-footer-contact-label">Email:</span>
                   <a href="mailto:info@cartlyf.com" className="modern-footer-link" aria-label="Email Cartlyf">info@cartlyf.com</a>
                 </li>
@@ -115,7 +120,7 @@ export default function Footer() {
           <div className="modern-footer-lower-content">
             <a href="#" className="modern-footer-legal-link">Privacy Policy</a>
             <span className="modern-footer-company-name">Cartlyf Technologies Limited</span>
-            <span className="modern-footer-copyright">©2025 All Rights Reserved.</span>
+            <span className="modern-footer-copyright">©{new Date().getFullYear()} All Rights Reserved.</span>
           </div>
         </div>
       </div>

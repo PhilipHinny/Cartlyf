@@ -34,20 +34,20 @@ export default function Team() {
   const teamMembers = [
     {
       name: "Agaba Jonan",
-      role: "Co-founder",
+      role: "Founder, CEO",
       image: "team 1.jpg",
-      bio: "Entrepreneur focused on building practical technology that improves daily life across Africa.",
+      bio: "Entrepreneur, tech innovator and product designer driving Cartlyf’s mission to create user-focused, scalable technology solutions that improve efficiency, accessibility and everyday life in African markets.",
       social: {
         linkedin: "https://www.linkedin.com/in/jonan-agaba256",
         twitter: "https://twitter.com/",
         email: "jagaba@cartlyf.com"
-        }
+      }
     },
     {
       name: "Philip Hinny",
-      role: "Co-founder",
+      role: "Co-founder, CTO",
       image: "/team 2.png",
-      bio: "Product-minded builder passionate about safe, trust-first digital platforms for African users.",
+      bio: "Entrepreneur, tech innovator and product designer leading the design and development of secure, reliable and impactful digital platforms that deliver seamless experiences for users.",
       social: {
         linkedin: "https://www.linkedin.com/in/philip-hinny-196719374",
         twitter: "https://twitter.com/",
@@ -59,21 +59,21 @@ export default function Team() {
   return (
     <section id="team" className="team-section" ref={sectionRef}>
       <div className="team-container">
-        <div className={`team-header ${isVisible ? 'fade-in-up' : ''}`}>  
+        <div className={`team-header ${isVisible ? 'fade-in-up' : ''}`}>
         </div>
 
         <div className="team-grid">
           {teamMembers.map((member, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className={`team-card ${isVisible ? 'fade-in-up' : ''}`}
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <div className="team-image-wrapper">
-                <img 
-                  src={member.image || "/placeholder-user.jpg"} 
-                  alt={member.name} 
-                  className="team-image" 
+                <img
+                  src={member.image || "/placeholder-user.jpg"}
+                  alt={member.name}
+                  className="team-image"
                 />
                 <div className="team-overlay">
                   <div className="team-social">

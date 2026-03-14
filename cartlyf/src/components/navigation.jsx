@@ -22,7 +22,7 @@ export default function Navigation() {
 
   const scrollToSection = (id) => {
     setIsMobileMenuOpen(false)
-    
+
     if (location.pathname !== '/') {
       navigate('/')
       setTimeout(() => {
@@ -47,14 +47,14 @@ export default function Navigation() {
         <div className="nav-inner">
           <Link to="/" className="nav-logo-wrapper" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="nav-logo-icon">
-              <img src="/cartlyf-logo.png" className="logo-image"/>
+              <img src="/cartlyf-logo.png" className="logo-image" />
             </div>
             <div className="nav-logo-text">
               <span className="nav-logo">Cartlyf</span>
               <span className="nav-logo-tagline">TECHNOLOGIES LIMITED</span>
             </div>
           </Link>
-          
+
           {/* Desktop Navigation */}
           <div className="nav-links">
             <Link to="/about" className="nav-link">
@@ -79,23 +79,23 @@ export default function Navigation() {
               Partnerships
             </a>
           </div>
-          
+
           <div className="nav-actions">
             <div className="nav-language-selector">
-              <button 
+              <button
                 className={`lang-button ${selectedLanguage === 'EN' ? 'active' : ''}`}
                 onClick={() => setSelectedLanguage('EN')}
               >
                 EN
               </button>
-              <button 
+              <button
                 className={`lang-button ${selectedLanguage === 'RU' ? 'active' : ''}`}
                 onClick={() => setSelectedLanguage('RU')}
               >
                 RU
               </button>
             </div>
-            <button 
+            <button
               className="mobile-menu-button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
@@ -130,13 +130,13 @@ export default function Navigation() {
               Partnerships
             </a>
             <div className="mobile-language-selector">
-              <button 
+              <button
                 className={`lang-button ${selectedLanguage === 'EN' ? 'active' : ''}`}
                 onClick={() => setSelectedLanguage('EN')}
               >
                 EN
               </button>
-              <button 
+              <button
                 className={`lang-button ${selectedLanguage === 'RU' ? 'active' : ''}`}
                 onClick={() => setSelectedLanguage('RU')}
               >

@@ -32,17 +32,17 @@ export default function PortfolioSnapshot() {
 
   const portfolioItems = [
     {
-      title: "FLYTS – Smart Digital Infrastructure",
+      title: "FLYTS – Powering Car Rentals",
       image: "/FLYTS.png",
-      description: "A digital platform modernizing the car rental industry by connecting fleets with verified customers through a secure digital booking environment."
+      description: "A digital platform digitizing the car rental industry by connecting fleets with verified customers through a secure digital booking environment."
     },
     {
-      title: "HAPA – Live City Discovery",
+      title: "HAPA – Discover the City",
       image: "/HAPA_APP.png",
-      description: "A real-time city discovery platform that provides a live window into a city's energy through moment-to-moment photos and videos."
+      description: "A real-time city discovery platform that provides a live feed of a city's vibe through moment-to-moment photos and videos."
     },
     {
-      title: "Timetable Scheduling Automation",
+      title: "Cartlyf Timetable Automation",
       image: "/online-education-platform.png",
       description: "Intelligent academic scheduling that automates the creation of school and university timetables, eliminating conflicts and manual coordination."
     }
