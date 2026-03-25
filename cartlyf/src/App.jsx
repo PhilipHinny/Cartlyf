@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage"
 import TeamPage from "./pages/TeamPage"
 import PortfolioPage from "./pages/PortfolioPage"
 import AboutPage from "./pages/AboutPage"
+import Careers from "./pages/Careers"
 import ModernContact from "./components/modern-contact"
 import "./styles/App.css"
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<ModernContact />} />
         </Routes>
         <Footer />

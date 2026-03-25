@@ -72,6 +72,9 @@ export default function Navigation() {
             <Link to="/team" className="nav-link">
               Team
             </Link>
+            <Link to="/careers" className="nav-link">
+              Careers
+            </Link>
             <a onClick={() => scrollToSection('contact')} className="nav-link">
               Contact
             </a>
@@ -122,6 +125,9 @@ export default function Navigation() {
             </a>
             <Link to="/team" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
               Team
+            </Link>
+            <Link to="/careers" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
+              Careers
             </Link>
             <a onClick={() => scrollToSection('contact')} className="mobile-link">
               Contact

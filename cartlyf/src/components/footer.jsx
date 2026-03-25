@@ -41,10 +41,10 @@ export default function Footer() {
               </div>
             </Link>
             <div className="modern-footer-social">
-              <button className="modern-footer-social-link" aria-label="Twitter" onClick={() => window.open('#', '_blank')}>
+              <button className="modern-footer-social-link" aria-label="Twitter" onClick={() => window.open('https://x.com/cartlyf2685', '_blank')}>
                 <Twitter size={20} />
               </button>
-              <button className="modern-footer-social-link" aria-label="LinkedIn" onClick={() => window.open('#', '_blank')}>
+              <button className="modern-footer-social-link" aria-label="LinkedIn" onClick={() => window.open('https://www.linkedin.com/company/cartlyf-technologies-limited', '_blank')}>
                 <Linkedin size={20} />
               </button>
             </div>
@@ -76,6 +76,11 @@ export default function Footer() {
                 <li>
                   <Link to="/team" className="modern-footer-link">
                     Team
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/careers" className="modern-footer-link">
+                    Careers
                   </Link>
                 </li>
                 <li>
