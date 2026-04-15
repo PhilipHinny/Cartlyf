@@ -53,7 +53,7 @@ export default function Portfolio() {
       tagline: "Powering Car Rentals",
       sector: "Transportation & Mobility",
       status: "Active",
-      link: "https://flyts-app.web.app",
+      link: "https://www.flytsapp.com",
       description:
         "A digital platform digitizing the car rental industry by connecting fleets with verified customers through a secure digital booking environment.",
       features: [
@@ -70,7 +70,7 @@ export default function Portfolio() {
       tagline: "Discover the City",
       sector: "Lifestyle & Entertainment",
       status: "Active",
-      link: "https://get-hapa.web.app",
+      link: "https://www.gethapa.com",
       description:
         "HAPA provides a live window into a city's real energy through photos and videos posted directly by venues and organizers in the moment.",
       features: [
