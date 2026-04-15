@@ -22,9 +22,9 @@ export default function ProfileHeader() {
               <button className="profile-follow-btn">Follow</button>
             </div>
             <div className="profile-contact">
-              <a href="mailto:info@cartlyf.com" className="profile-contact-item">
+              <a href="mailto:info@cartlyftechnologies.com" className="profile-contact-item">
                 <Mail size={16} />
-                <span>info@cartlyf.com</span>
+                <span>info@cartlyftechnologies.com</span>
               </a>
               <a href="tel:+254700000000" className="profile-contact-item">
                 <Phone size={16} />

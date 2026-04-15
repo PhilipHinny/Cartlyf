@@ -109,7 +109,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <span className="modern-footer-contact-label">Email:</span>
-                  <a href="mailto:info@cartlyf.com" className="modern-footer-link" aria-label="Email Cartlyf">info@cartlyf.com</a>
+                  <a href="mailto:info@cartlyftechnologies.com" className="modern-footer-link" aria-label="Email Cartlyf">info@cartlyftechnologies.com</a>
                 </li>
               </ul>
             </div>
