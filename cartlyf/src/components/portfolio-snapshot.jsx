@@ -57,14 +57,13 @@ export default function PortfolioSnapshot() {
             Technology products that improve efficiency, accessibility, and resource utilization.
           </h2>
           <div className="portfolio-snapshot-cta">
-            <Button
-              size="lg"
-              className="portfolio-snapshot-button"
-              onClick={() => navigate('/portfolio')}
+            <a
+              href="/portfolio"
+              className="portfolio-snapshot-button-link"
             >
               View all products
               <ArrowUpRight size={18} />
-            </Button>
+            </a>
           </div>
           <div className="portfolio-snapshot-grid">
             {portfolioItems.map((item, index) => (

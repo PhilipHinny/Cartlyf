@@ -54,22 +54,27 @@ export default function Footer() {
               <h4 className="modern-footer-links-title">Navigation</h4>
               <ul className="modern-footer-links">
                 <li>
-                  <a onClick={() => scrollToSection('about')} className="modern-footer-link">
+                  <Link to="/about" className="modern-footer-link">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a onClick={() => scrollToSection('portfolio-snapshot')} className="modern-footer-link">
+                  <Link to="/services" className="modern-footer-link">
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <a href="/#portfolio-snapshot" onClick={(e) => { e.preventDefault(); scrollToSection('portfolio-snapshot'); }} className="modern-footer-link">
                     Our Products
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToSection('focus-areas')} className="modern-footer-link">
+                  <a href="/#focus-areas" onClick={(e) => { e.preventDefault(); scrollToSection('focus-areas'); }} className="modern-footer-link">
                     Focus Areas
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToSection('news')} className="modern-footer-link">
+                  <a href="/#news" onClick={(e) => { e.preventDefault(); scrollToSection('news'); }} className="modern-footer-link">
                     News
                   </a>
                 </li>
@@ -84,14 +89,34 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <a onClick={() => scrollToSection('contact')} className="modern-footer-link">
+                  <a href="/#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="modern-footer-link">
                     Contact
                   </a>
                 </li>
                 <li>
-                  <a onClick={() => scrollToSection('contact')} className="modern-footer-link">
+                  <a href="/#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="modern-footer-link">
                     Partnerships
                   </a>
+                </li>
+              </ul>
+            </div>
+            <div className="modern-footer-links-column">
+              <h4 className="modern-footer-links-title">Our Products</h4>
+              <ul className="modern-footer-links">
+                <li>
+                  <a href="https://www.flytsapp.com" target="_blank" rel="noopener noreferrer" className="modern-footer-link">
+                    FLYTS Car Rental
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.gethapa.com" target="_blank" rel="noopener noreferrer" className="modern-footer-link">
+                    HAPA City Discovery
+                  </a>
+                </li>
+                <li>
+                  <Link to="/portfolio" className="modern-footer-link">
+                    All Products
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -124,6 +149,9 @@ export default function Footer() {
         <div className="modern-footer-lower">
           <div className="modern-footer-lower-content">
             <a href="#" className="modern-footer-legal-link">Privacy Policy</a>
+            <p className="modern-footer-product-by">
+              A <a href="https://www.cartlyftechnologies.com">Cartlyf Technologies</a> product.
+            </p>
             <span className="modern-footer-company-name">Cartlyf Technologies Limited</span>
             <span className="modern-footer-copyright">©{new Date().getFullYear()} All Rights Reserved.</span>
           </div>

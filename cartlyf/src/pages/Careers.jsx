@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SeoHead from "../components/SeoHead";
 import "../styles/careers.css";
 
 const positions = [
@@ -411,6 +412,14 @@ export default function Careers() {
 
   return (
     <div className="careers-page">
+      <SeoHead 
+        title="Careers & Internships | Cartlyf Technologies — Growth Cohort 2026"
+        description="Join the Cartlyf Technologies growth cohort. We are looking for interns in market research, social media, SEO, and regulatory compliance to scale FLYTS and HAPA."
+        canonical="https://www.cartlyftechnologies.com/careers"
+        ogTitle="Build the Future of Digital Africa — Cartlyf Careers"
+        ogDescription="Join our 2-month growth cohort and help launch FLYTS, HAPA, and Timetable Automation systems across East Africa. High-impact tech roles in Kenya & Uganda."
+        ogUrl="https://www.cartlyftechnologies.com/careers"
+      />
       {/* Hero */}
       <section className="careers-hero">
         <div className="hero-badge fade-in-up">Growth Cohort 2026</div>
