@@ -9,7 +9,7 @@ import PortfolioPage from "./pages/PortfolioPage"
 import AboutPage from "./pages/AboutPage"
 import Careers from "./pages/Careers"
 import ServicesPage from "./pages/ServicesPage"
-import ModernContact from "./components/modern-contact"
+import ContactPage from "./pages/ContactPage"
 import "./styles/App.css"
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/services" element={<ServicesPage />} />
-            <Route path="/contact" element={<ModernContact />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
           <Footer />
         </main>
