@@ -60,13 +60,16 @@ export default function Navigation() {
             <Link to="/about" className="nav-link">
               About
             </Link>
-            <a onClick={() => scrollToSection('portfolio-snapshot')} className="nav-link">
+            <Link to="/services" className="nav-link">
+              Services
+            </Link>
+            <a href="/#portfolio-snapshot" onClick={(e) => { e.preventDefault(); scrollToSection('portfolio-snapshot'); }} className="nav-link">
               Our Products
             </a>
-            <a onClick={() => scrollToSection('focus-areas')} className="nav-link">
+            <a href="/#focus-areas" onClick={(e) => { e.preventDefault(); scrollToSection('focus-areas'); }} className="nav-link">
               Focus Areas
             </a>
-            <a onClick={() => scrollToSection('news')} className="nav-link">
+            <a href="/#news" onClick={(e) => { e.preventDefault(); scrollToSection('news'); }} className="nav-link">
               News
             </a>
             <Link to="/team" className="nav-link">
@@ -75,10 +78,10 @@ export default function Navigation() {
             <Link to="/careers" className="nav-link">
               Careers
             </Link>
-            <a onClick={() => scrollToSection('contact')} className="nav-link">
+            <a href="/#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="nav-link">
               Contact
             </a>
-            <a onClick={() => scrollToSection('contact')} className="nav-link nav-link-partner">
+            <a href="/#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="nav-link nav-link-partner">
               Partnerships
             </a>
           </div>
@@ -114,13 +117,16 @@ export default function Navigation() {
             <Link to="/about" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
               About
             </Link>
-            <a onClick={() => scrollToSection('portfolio-snapshot')} className="mobile-link">
+            <Link to="/services" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
+              Services
+            </Link>
+            <a href="/#portfolio-snapshot" onClick={(e) => { e.preventDefault(); scrollToSection('portfolio-snapshot'); }} className="mobile-link">
               Our Products
             </a>
-            <a onClick={() => scrollToSection('focus-areas')} className="mobile-link">
+            <a href="/#focus-areas" onClick={(e) => { e.preventDefault(); scrollToSection('focus-areas'); }} className="mobile-link">
               Focus Areas
             </a>
-            <a onClick={() => scrollToSection('news')} className="mobile-link">
+            <a href="/#news" onClick={(e) => { e.preventDefault(); scrollToSection('news'); }} className="mobile-link">
               News
             </a>
             <Link to="/team" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
@@ -129,10 +135,10 @@ export default function Navigation() {
             <Link to="/careers" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
               Careers
             </Link>
-            <a onClick={() => scrollToSection('contact')} className="mobile-link">
+            <a href="/#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="mobile-link">
               Contact
             </a>
-            <a onClick={() => scrollToSection('contact')} className="mobile-link">
+            <a href="/#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="mobile-link">
               Partnerships
             </a>
             <div className="mobile-language-selector">

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useForm, ValidationError } from '@formspree/react'
+import SeoHead from "./SeoHead"
 import { Button } from "./ui/button"
 import { ChevronDown } from "lucide-react"
 import "../styles/modern-contact.css"
@@ -39,6 +40,14 @@ export default function ModernContact() {
 
   return (
     <section id="contact" ref={sectionRef} className="modern-contact-section">
+      <SeoHead 
+        title="Contact Us | Cartlyf Technologies — Partnerships & Inquiries"
+        description="Get in touch with Cartlyf Technologies for partnerships, collaboration, or pilot programs. We build practical digital solutions for East Africa."
+        canonical="https://www.cartlyftechnologies.com/contact"
+        ogTitle="Connect with Cartlyf Technologies"
+        ogDescription="Reach out to our team in Kitale, Kenya for strategic partnerships and technology collaboration across Africa."
+        ogUrl="https://www.cartlyftechnologies.com/contact"
+      />
       <div className="modern-contact-container">
         <div className={`modern-contact-card ${isVisible ? 'fade-in-up' : ''}`}>
           <div className="modern-contact-left">

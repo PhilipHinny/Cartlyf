@@ -45,7 +45,7 @@ export default function ModernAbout() {
               <p className="modern-about-description">
                 Cartlyf Technologies Limited is a registered technology company based in Kitale, Kenya. We focus on creating impactful digital products that address practical problems in African markets while remaining scalable for global adoption. Our approach is product-driven, user-focused, and built around long-term innovation rather than short-term trends.
               </p>
-              <a onClick={() => navigate('/about')} className="modern-about-button" style={{ cursor: 'pointer' }}>
+              <a href="/about" className="modern-about-button">
                 Learn more about us
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

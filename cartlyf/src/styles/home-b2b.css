@@ -1,0 +1,30 @@
+/* home-b2b.css — B2B / client-facing keyword paragraph on home page */
+
+.home-b2b-section {
+  padding: 3rem 1.5rem;
+  background: var(--color-surface, #0f0f11);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.home-b2b-container {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-b2b-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-muted, #9ca3af);
+}
+
+.home-b2b-link {
+  color: var(--color-accent, #7c6ef7);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.home-b2b-link:hover {
+  color: var(--color-accent-light, #a89af9);
+}
