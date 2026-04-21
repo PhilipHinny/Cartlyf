@@ -72,9 +72,9 @@ export default function Navigation() {
             <a href="/#news" onClick={(e) => { e.preventDefault(); scrollToSection('news'); }} className="nav-link">
               News
             </a>
-            <Link to="/team" className="nav-link">
+            {/* <Link to="/team" className="nav-link">
               Team
-            </Link>
+            </Link> */}
             <Link to="/careers" className="nav-link">
               Careers
             </Link>
@@ -129,9 +129,9 @@ export default function Navigation() {
             <a href="/#news" onClick={(e) => { e.preventDefault(); scrollToSection('news'); }} className="mobile-link">
               News
             </a>
-            <Link to="/team" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
+            {/* <Link to="/team" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
               Team
-            </Link>
+            </Link> */}
             <Link to="/careers" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
               Careers
             </Link>

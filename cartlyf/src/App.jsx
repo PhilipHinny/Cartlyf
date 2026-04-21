@@ -4,7 +4,7 @@ import { HelmetProvider } from "react-helmet-async"
 import Navigation from "./components/navigation"
 import Footer from "./components/footer"
 import HomePage from "./pages/HomePage"
-import TeamPage from "./pages/TeamPage"
+// import TeamPage from "./pages/TeamPage"
 import PortfolioPage from "./pages/PortfolioPage"
 import AboutPage from "./pages/AboutPage"
 import Careers from "./pages/Careers"
@@ -21,7 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/team" element={<TeamPage />} />
+            {/* <Route path="/team" element={<TeamPage />} /> */}
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/services" element={<ServicesPage />} />

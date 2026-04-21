@@ -78,11 +78,11 @@ export default function Footer() {
                     News
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/team" className="modern-footer-link">
                     Team
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="/careers" className="modern-footer-link">
                     Careers

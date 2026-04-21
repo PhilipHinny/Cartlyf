@@ -87,7 +87,7 @@ export default function Portfolio() {
       tagline: "Intelligent Academic Scheduling",
       sector: "Education Technology",
       status: "Available",
-      link: "https://cartlyf-timetable-scheduling-system.web.app",
+      link: "https://timetable-automation-system.web.app",
       description:
         "An intelligent academic scheduling platform designed to automate the complex process of creating school and university timetables without conflicts.",
       features: [
