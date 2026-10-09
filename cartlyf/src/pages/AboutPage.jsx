@@ -1,246 +1,165 @@
-import { useEffect, useRef, useState } from "react"
+import { Link } from "react-router-dom"
 import SeoHead from "../components/SeoHead"
-import "../styles/page-header.css"
+import { ArrowLink } from "../components/site-ui"
+import PageHero from "../components/kit/PageHero"
+import SectionHeader from "../components/kit/SectionHeader"
+import CtaBand from "../components/kit/CtaBand"
+import Picture from "../components/kit/Picture"
+import { ORGANIZATION_JSON_LD, FLYTS_URL, CONTACT } from "../config/site"
 import "../styles/about-page.css"
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Cartlyf Technologies Limited",
-  "url": "https://www.cartlyftechnologies.com",
-  "logo": "https://www.cartlyftechnologies.com/cartlyf-logo.png",
-  "description": "Cartlyf Technologies is a Kenyan technology company building scalable digital products for East African markets, including the FLYTS car rental platform and HAPA venue discovery app.",
-  "foundingDate": "2024",
-  "foundingLocation": { "@type": "Place", "name": "Kitale, Kenya" },
-  "areaServed": ["Kenya", "Uganda", "East Africa"],
-  "sameAs": [
-    "https://www.linkedin.com/company/cartlyf-technologies-limited",
-    "https://twitter.com/cartlyf"
-  ]
-}
+const PRINCIPLES = [
+  { title: "Fixed scope", text: "You know the price and the timeline before work starts." },
+  { title: "Plain language", text: "We explain what we're building and why, without jargon." },
+  { title: "Local payment rails", text: "M-Pesa, Flutterwave and Paystack, built in from the start." },
+  { title: "Data protection built in", text: "Systems designed around Kenya's Data Protection Act, not patched later." },
+]
+
+// Team section is hidden for now (see the commented-out section below).
+const TEAM = [
+  {
+    name: "Jamal Jonan Agaba",
+    initials: "JJA",
+    role: "Co-founder and Director, technical lead",
+    bio: "Jamal's bio, 2 to 3 sentences",
+  },
+  {
+    name: "Philip Hinny",
+    initials: "PH",
+    role: "Co-founder and Director",
+    bio: "Philip's bio, 2 to 3 sentences",
+  },
+]
 
 export default function AboutPage() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true) },
-      { threshold: 0.1 }
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => { if (sectionRef.current) observer.unobserve(sectionRef.current) }
-  }, [])
-
   return (
-    <>
+    <div className="page-wrapper">
       <SeoHead
-        title="Cartlyf Technologies | East Africa Tech Company | Kenya"
-        description="Cartlyf Technologies is a Kenyan tech company building scalable digital products for East Africa — including FLYTS car rentals and HAPA, the live venue discovery app."
-        canonical="https://www.cartlyftechnologies.com/about"
-        ogTitle="Cartlyf Technologies — Building East Africa's Digital Economy"
-        ogDescription="Kenyan tech startup behind FLYTS (peer-to-peer car rentals) and HAPA (live venue discovery). Building practical technology for African markets."
-        ogUrl="https://www.cartlyftechnologies.com/about"
-        structuredData={structuredData}
+        title="About Us"
+        description="Cartlyf Technologies Limited is a registered Kenyan technology company in Nairobi and Kitale, building payment, data protection and AI systems for East African businesses."
+        path="/about"
+        structuredData={ORGANIZATION_JSON_LD}
       />
 
-      <div className="page-wrapper">
-        {/* ── Page Header ── */}
-        <div className="page-header">
-          <div className="page-header-content">
-            <h1 className="page-header-title">About Cartlyf Technologies</h1>
-            <p className="page-header-description">
-              Who we are, what we build, and our vision for practical technology in East Africa
+      <PageHero
+        image="nairobi-skyline"
+        eyebrow="About"
+        title="About Cartlyf Technologies"
+        lead="The team that builds and secures payment, data and AI systems for East African businesses."
+      />
+
+      <section className="section">
+        <div className="container about-story">
+          <div>
+            <SectionHeader title="Our story" />
+            <p className="section-lead">
+              Cartlyf Technologies Limited is a registered Kenyan technology company serving Kenya and East Africa.
+              We started by building our own products, including FLYTS, a car rental marketplace, and learned what it
+              takes to ship software that handles real money and real customer data in East Africa. Now we build those
+              systems for other businesses.
             </p>
+          </div>
+          <div className="about-story-media">
+            <Picture id="gen-about-workspace" sizes="(min-width: 900px) 560px, 100vw" />
           </div>
         </div>
+      </section>
 
-        {/* ── Who We Are ── */}
-        <section ref={sectionRef} className="about-overview-section">
-          <div className="about-overview-container">
-            <div className={`about-overview-content ${isVisible ? "fade-in-up" : ""}`}>
-              <h2 className="about-overview-title">Who We Are</h2>
-              <p className="about-overview-description">
-                Cartlyf Technologies Limited is a registered technology company based in Kitale,
-                Kenya. We build digital products that solve practical, everyday problems in African
-                markets — creating platforms that are reliable enough for today and scalable enough
-                for tomorrow.
-              </p>
-              <p className="about-overview-description">
-                We are a product-driven company. That means every decision we make starts with a
-                real user need: a car owner with an idle vehicle, a renter who needs transport
-                without bureaucratic friction, a person who wants to know what is actually happening
-                in their city tonight. We build the digital infrastructure that connects those needs
-                to real solutions.
-              </p>
-              <p className="about-overview-description">
-                Our work spans transportation technology, lifestyle apps, and education systems —
-                three areas where the gap between what people need and what currently exists is still
-                very wide across East Africa.
-              </p>
-            </div>
+      <section className="section section-alt">
+        <div className="container">
+          <SectionHeader title="How we work" />
+          <div className="grid grid-4">
+            {PRINCIPLES.map((p) => (
+              <div key={p.title} className="card card-sm">
+                <h3 className="card-title">{p.title}</h3>
+                <p className="card-text">{p.text}</p>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ── Vision ── */}
-        <section className="about-overview-section about-overview-section--alt">
-          <div className="about-overview-container">
-            <div className={`about-overview-content ${isVisible ? "fade-in-up" : ""}`}>
-              <h2 className="about-overview-title">Our Vision</h2>
-              <p className="about-overview-description">
-                To become one of Africa's leading technology companies by building innovative digital
-                products that solve everyday challenges and unlock value from underused systems and
-                resources.
-              </p>
-            </div>
+      {/* Team section hidden for now; restore when photos and bios are ready.
+      <section className="section">
+        <div className="container">
+          <SectionHeader title="Team" />
+          <div className="grid grid-2">
+            {TEAM.map((person) => (
+              <div key={person.name} className="card about-person">
+                <div className="about-photo" role="img" aria-label={`Photo placeholder for ${person.name}`}>
+                  <span aria-hidden="true">{person.initials}</span>
+                </div>
+                <div>
+                  <h3 className="card-title">{person.name}</h3>
+                  <p className="about-role">{person.role}</p>
+                  <p className="card-text">
+                    <Placeholder>{person.bio}</Placeholder>
+                  </p>
+                  <p className="card-text">
+                    <Placeholder>team photo for {person.name}</Placeholder>
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
+      */}
 
-        {/* ── Mission ── */}
-        <section className="about-overview-section">
-          <div className="about-overview-container">
-            <div className={`about-overview-content ${isVisible ? "fade-in-up" : ""}`}>
-              <h2 className="about-overview-title">Our Mission</h2>
-              <p className="about-overview-description">
-                To create reliable, scalable, and user-centred technology products that improve
-                transportation, education, and digital access — while contributing to sustainable
-                economic growth across African markets.
+      <section className="section">
+        <div className="container">
+          <SectionHeader title="Built by Cartlyf" lead="Our own products, and the proof behind our client work." />
+          <div className="grid grid-2">
+            <div className="card">
+              <h3 className="card-title">FLYTS</h3>
+              <p className="card-text">
+                A car rental marketplace for Kenya, live on web and Android, with escrow payments, renter KYC
+                and data protection built in.
               </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Products ── */}
-        <section className="about-values-section">
-          <div className="about-values-container">
-            <h2 className="about-values-title">Our Products</h2>
-            <p className="about-overview-description" style={{ textAlign: "center", marginBottom: "2rem" }}>
-              We currently operate two active platforms and one product in development.{" "}
-              <a href="/portfolio" className="about-inline-link">View all our products →</a>
-            </p>
-
-            <div className="about-products-grid">
-              {/* FLYTS */}
-              <div className={`about-product-item ${isVisible ? "fade-in-up" : ""}`}>
-                <h3 className="about-product-title">
-                  FLYTS — Peer-to-Peer Car Rentals in Kenya and Uganda
-                </h3>
-                <p className="about-value-description">
-                  FLYTS is East Africa's peer-to-peer car rental platform. It connects verified
-                  private vehicle owners with renters who need self-drive or chauffeured transport
-                  across Kenya and Uganda — with no deposit required and secure digital payments
-                  built in.
-                </p>
-                <p className="about-value-description">
-                  For vehicle owners, FLYTS turns an idle asset into consistent income. For renters,
-                  it provides affordable, verified transport without the rigid terms of traditional
-                  car hire companies.
-                </p>
-                <p className="about-product-meta">
-                  <span className="about-product-badge">Transportation &amp; Mobility Technology</span>
-                  <span className="about-product-status about-product-status--active">Active</span>
-                </p>
-                <a
-                  href="https://www.flytsapp.com"
-                  className="about-product-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit flytsapp.com →
+              <div className="card-footer btn-row">
+                <a href={FLYTS_URL} target="_blank" rel="noopener noreferrer" className="arrow-link">
+                  Visit flytsapp.com
                 </a>
+                <ArrowLink to="/case-studies/flyts">Case study</ArrowLink>
               </div>
-
-              {/* HAPA */}
-              <div className={`about-product-item ${isVisible ? "fade-in-up" : ""}`} style={{ transitionDelay: "0.1s" }}>
-                <h3 className="about-product-title">
-                  HAPA — Live Venue &amp; Events Discovery in Kampala
-                </h3>
-                <p className="about-value-description">
-                  HAPA is a real-time venue and events discovery app for Kampala, Uganda. Unlike
-                  review platforms that show you what a place looked like in 2022, HAPA shows you
-                  what is happening right now — through photos and videos posted directly by venues
-                  and event organisers in the moment.
-                </p>
-                <p className="about-value-description">
-                  The result is a live window into the city's real energy: which venues are open,
-                  what the crowd looks like, what events are on tonight — before you step out the
-                  door. Available on iOS and Android, and free to explore.
-                </p>
-                <p className="about-product-meta">
-                  <span className="about-product-badge">Lifestyle &amp; Entertainment</span>
-                  <span className="about-product-status about-product-status--active">Active</span>
-                </p>
-                <a
-                  href="https://www.gethapa.com"
-                  className="about-product-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit gethapa.com →
-                </a>
-              </div>
-
-              {/* Timetable */}
-              <div className={`about-product-item ${isVisible ? "fade-in-up" : ""}`} style={{ transitionDelay: "0.2s" }}>
-                <h3 className="about-product-title">
-                  Timetable Scheduling System — Intelligent Academic Scheduling
-                </h3>
-                <p className="about-value-description">
-                  Our third product addresses a problem that costs schools and universities enormous
-                  amounts of administrative time: building conflict-free timetables. Our intelligent
-                  scheduling platform automates the entire process — taking institutional
-                  constraints, teacher availability, and room capacity as inputs and generating
-                  optimised, conflict-free timetables as output.
-                </p>
-                <p className="about-product-meta">
-                  <span className="about-product-badge">Education Technology</span>
-                  <span className="about-product-status about-product-status--dev">In Development — launching 2025</span>
-                </p>
+            </div>
+            <div className="card">
+              <h3 className="card-title">Cartlyf Timetable Automation</h3>
+              <p className="card-text">
+                Intelligent school and university timetabling that removes clashes and manual coordination.
+              </p>
+              <div className="card-footer">
+                <ArrowLink to="/industries#education">Education</ArrowLink>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ── Where We Build ── */}
-        <section className="about-overview-section about-overview-section--alt">
-          <div className="about-overview-container">
-            <div className={`about-overview-content ${isVisible ? "fade-in-up" : ""}`}>
-              <h2 className="about-overview-title">Where We Build</h2>
-              <p className="about-overview-description">
-                We are based in Kitale, Kenya, and our products currently serve users across Kenya
-                and Uganda. We build for African markets first — because the problems here are real,
-                the demand is real, and the opportunity to create lasting impact is real. We also
-                build with global scalability in mind, because the solutions that work here can work
-                anywhere.
-              </p>
-              <p className="about-overview-description">
-                We also partner with organisations across East Africa to develop custom software
-                solutions — including school management systems, booking platforms, and business
-                automation tools. If you need a{" "}
-                <a href="/services" className="about-inline-link">custom software development</a>{" "}
-                partner in Kenya, we'd love to talk.
-              </p>
+      <section className="section section-alt">
+        <div className="container container-narrow">
+          <SectionHeader title="Company details" />
+          <dl className="facts">
+            <div>
+              <dt>Company</dt>
+              <dd>Cartlyf Technologies Limited, registered in Kenya</dd>
             </div>
-          </div>
-        </section>
+            <div>
+              <dt>Offices</dt>
+              <dd>{CONTACT.offices.map((o) => o.city).join(" and ")}</dd>
+            </div>
+          </dl>
+          <p className="about-links">
+            <Link to="/careers">Careers at Cartlyf</Link>
+            <Link to="/labs">Cartlyf Labs</Link>
+          </p>
+        </div>
+      </section>
 
-        {/* ── Work With Us ── */}
-        <section className="about-overview-section">
-          <div className="about-overview-container">
-            <div className={`about-overview-content ${isVisible ? "fade-in-up" : ""}`}>
-              <h2 className="about-overview-title">Work With Us</h2>
-              <p className="about-overview-description">
-                We are always looking for talented people who want to build products that matter. If
-                you are a developer, designer, marketer, or operator interested in what we are
-                doing, reach out.
-              </p>
-              <a href="/contact" className="about-product-link">
-                Contact us →
-              </a>
-            </div>
-          </div>
-        </section>
-      </div>
-    </>
+      <CtaBand
+        title="Talk to the people who build it"
+        text="Book a free 30-minute health check and we'll tell you the one thing worth fixing first."
+      />
+    </div>
   )
 }

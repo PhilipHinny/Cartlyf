@@ -1,19 +1,22 @@
-import React from "react"
 import ModernContact from "../components/modern-contact"
 import SeoHead from "../components/SeoHead"
+import PageHero from "../components/kit/PageHero"
 
 export default function ContactPage() {
   return (
-    <>
-      <SeoHead 
-        title="Contact Us | Cartlyf Technologies — Partnerships & Inquiries"
-        description="Get in touch with Cartlyf Technologies for partnerships, collaboration, or pilot programs. We build practical digital solutions for East Africa."
-        canonical="https://www.cartlyftechnologies.com/contact"
-        ogTitle="Connect with Cartlyf Technologies"
-        ogDescription="Reach out to our team in Kitale, Kenya for strategic partnerships and technology collaboration across Africa."
-        ogUrl="https://www.cartlyftechnologies.com/contact"
+    <div className="page-wrapper">
+      <SeoHead
+        title="Contact Us"
+        description="Book a free 30-minute health check or ask about M-Pesa integration, ODPC compliance or AI automation. Cartlyf Technologies, Nairobi and Kitale, Kenya."
+        path="/contact"
+      />
+      <PageHero
+        image="nairobi-skyline"
+        eyebrow="Contact"
+        title="Talk to us"
+        lead="Book a free health check, ask about a project, or start a partnership."
       />
       <ModernContact />
-    </>
+    </div>
   )
 }

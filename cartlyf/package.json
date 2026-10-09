@@ -7,7 +7,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "verify:dist": "node scripts/verify/dist.mjs",
+    "verify:mobile": "node scripts/verify/mobile.mjs",
+    "verify:contrast": "node scripts/verify/contrast.mjs",
+    "images:fetch": "node scripts/images.mjs fetch",
+    "images:add": "node scripts/images.mjs add",
+    "verify:images": "node scripts/verify/images.mjs",
+    "verify": "npm run verify:contrast && npm run verify:images && npm run build && npm run verify:dist && npm run verify:mobile",
+    "images:variants": "node scripts/images.mjs variants"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
@@ -16,6 +24,7 @@
     "clsx": "^2.1.1",
     "firebase": "^12.12.0",
     "lucide-react": "^0.544.0",
+    "marked": "^18.0.14",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-helmet-async": "^3.0.0",
@@ -33,6 +42,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
+    "puppeteer": "^24.41.0",
+    "sharp": "^0.35.5",
     "vite": "^7.1.7"
   }
 }

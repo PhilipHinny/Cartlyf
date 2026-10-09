@@ -312,7 +312,7 @@
   flex-wrap: wrap;
 }
 
-.tag {
+.careers-page .tag {
   font-size: var(--text-xs);
   padding: 0.25rem 0.75rem;
   background: var(--color-surface-subtle);
@@ -676,8 +676,9 @@
 }
 
 /* Buttons */
-.btn-primary {
-  background: var(--color-primary);
+.careers-page .btn-primary,
+.modal-overlay .btn-primary {
+  background: var(--color-primary-strong);
   color: white;
   padding: 0.875rem 2rem;
   border-radius: var(--radius-sm);
@@ -689,13 +690,15 @@
   white-space: nowrap;
 }
 
-.btn-primary:hover {
-  background: var(--color-primary-hover);
+.careers-page .btn-primary:hover,
+.modal-overlay .btn-primary:hover {
+  background: var(--color-primary-stronger);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-.btn-primary:disabled {
+.careers-page .btn-primary:disabled,
+.modal-overlay .btn-primary:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;

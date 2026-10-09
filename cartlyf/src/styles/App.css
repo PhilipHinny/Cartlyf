@@ -6,6 +6,6 @@
   position: relative;
   width: 100%;
   overflow-x: hidden;
-  background-color: var(--color-surface-alt);
+  background-color: var(--white);
   font-family: var(--font-sans);
 }

@@ -1,67 +1,88 @@
-/* Cartlyf Design System – modern, tech-forward palette */
+/* Cartlyf design tokens: direction B (modern tech consultancy).
+   Teal from the logo plus a teal-tinted "ink". Headings Manrope, body Inter. */
 :root {
-  /* Font family */
-  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Fonts */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Manrope", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  /* Primary – teal (trust, growth, technology) */
-  --color-primary: #0d9488;
-  --color-primary-hover: #0f766e;
-  --color-primary-muted: #5eead4;
-  --color-primary-bg: #ccfbf1;
+  /* Palette */
+  --ink-950: #0a161c;
+  --ink-900: #0f2a2e;
+  --ink-800: #1a3a3f;
+  --teal-700: #15605b;
+  --teal-600: #1d7a74;
+  --teal-300: #5fc4b8;
+  --teal-50: #e6f4f2;
+  --mist: #f4f6f7;
+  --line: #e3e8ea;
+  --line-strong: #cbd5e1;
+  --text: #111827;
+  --text-2: #4b5563;
+  --muted: #6b7280; /* white backgrounds only: 4.46:1 on mist */
+  --white: #ffffff;
+  --focus: #f59e0b;
 
-  /* Dark surfaces – hero, dark sections, footer */
-  --color-surface-dark: #0f172a;
-  --color-surface-dark-soft: #1e293b;
-  --color-surface-dark-muted: #334155;
+  /* Text on dark */
+  --on-dark: #ffffff;
+  --on-dark-2: rgba(255, 255, 255, 0.82);
+  --on-dark-3: rgba(255, 255, 255, 0.68);
 
-  /* Light surfaces */
-  --color-surface: #ffffff;
-  --color-surface-alt: #f8fafc;
-  --color-surface-subtle: #f1f5f9;
-  --color-surface-warm: #fafaf9;
+  /* Aliases for Careers and older stylesheets */
+  --color-primary: var(--teal-600);
+  --color-primary-hover: var(--teal-700);
+  --color-primary-strong: var(--teal-600);
+  --color-primary-stronger: var(--teal-700);
+  --color-primary-muted: var(--teal-300);
+  --color-primary-bg: var(--teal-50);
+  --color-focus: var(--focus);
+  --color-surface-dark: var(--ink-950);
+  --color-surface-dark-soft: var(--ink-900);
+  --color-surface-dark-muted: var(--ink-800);
+  --color-surface: var(--white);
+  --color-surface-alt: var(--mist);
+  --color-surface-subtle: var(--mist);
+  --color-surface-warm: var(--mist);
+  --color-text: var(--text);
+  --color-text-secondary: var(--text-2);
+  --color-text-muted: var(--muted);
+  --color-text-inverse: var(--on-dark);
+  --color-text-inverse-muted: var(--on-dark-2);
+  --color-text-inverse-soft: var(--on-dark-3);
+  --color-border: var(--line);
+  --color-border-strong: var(--line-strong);
 
-  /* Text */
-  --color-text: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-muted: #64748b;
-  --color-text-inverse: #ffffff;
-  --color-text-inverse-muted: rgba(255, 255, 255, 0.85);
-  --color-text-inverse-soft: rgba(255, 255, 255, 0.7);
-
-  /* Borders */
-  --color-border: #e2e8f0;
-  --color-border-strong: #cbd5e1;
-
-  /* Typography scale */
-  --text-display: clamp(2.5rem, 5vw, 4rem);
-  --text-h1: clamp(2rem, 4vw, 3.25rem);
-  --text-h2: clamp(1.75rem, 3.5vw, 2.5rem);
-  --text-h3: clamp(1.25rem, 2.5vw, 1.5rem);
-  --text-body: 1.0625rem;
+  /* Type scale */
+  --text-display: clamp(2.25rem, 5vw, 3.75rem);
+  --text-h1: clamp(2rem, 4.5vw, 3.25rem);
+  --text-h2: clamp(1.75rem, 3.2vw, 2.5rem);
+  --text-h3: clamp(1.25rem, 2.2vw, 1.5rem);
+  --text-body: 1rem;
   --text-body-lg: 1.125rem;
   --text-sm: 0.9375rem;
   --text-xs: 0.8125rem;
-  --text-badge: 0.8125rem;
+  --text-badge: 0.75rem;
 
-  /* Spacing & layout */
-  --section-padding-y: 5rem;
+  /* Spacing and layout */
+  --section-padding-y: 5.5rem;
   --section-padding-x: 1.5rem;
-  --container-max: 1400px;
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.25rem;
+  --container-max: 1200px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
-  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.1);
-  --shadow-lg: 0 8px 32px rgba(15, 23, 42, 0.12);
-  --shadow-xl: 0 20px 48px rgba(15, 23, 42, 0.15);
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Depth: cards have no resting shadow; these are for hover and overlays */
+  --shadow-sm: 0 1px 2px rgba(10, 22, 28, 0.06);
+  --shadow-md: 0 10px 28px rgba(10, 22, 28, 0.1);
+  --shadow-lg: 0 16px 40px rgba(10, 22, 28, 0.14);
+  --shadow-xl: 0 24px 56px rgba(10, 22, 28, 0.18);
 }
 
 @media (max-width: 768px) {
   :root {
-    --section-padding-y: 3rem;
-    --section-padding-x: 1.25rem;
+    --section-padding-y: 3.5rem;
+    --section-padding-x: 1rem;
   }
 }

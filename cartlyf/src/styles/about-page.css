@@ -1,147 +1,69 @@
-.about-page-wrapper {
-  width: 100%;
-  font-family: var(--font-sans);
+/* About page */
+.about-story {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
 }
-
-.vision-mission-section {
-  padding: var(--section-padding-y) var(--section-padding-x);
-}
-
-@media (max-width: 968px) {
-  .vision-mission-section {
-    padding: var(--section-padding-y) var(--section-padding-x);
+@media (min-width: 900px) {
+  .about-story {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 4rem;
   }
 }
-
-.about-overview-section {
-  padding: var(--section-padding-y) var(--section-padding-x);
-  background: var(--color-surface-alt);
+.about-story .section-header {
+  margin-bottom: 1rem;
 }
-
-.about-overview-container {
-  max-width: var(--container-max);
-  width: 100%;
-  margin: 0 auto;
-}
-
-.about-overview-content {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  max-width: 880px;
-}
-
-.about-overview-content.fade-in-up {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.about-overview-title {
-  font-family: var(--font-sans);
-  font-size: var(--text-h1);
-  font-weight: 700;
-  color: var(--color-text);
-  margin: 0 0 1.5rem 0;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-}
-
-.about-overview-description {
-  font-family: var(--font-sans);
-  font-size: var(--text-body-lg);
-  line-height: 1.75;
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
-.about-values-section {
-  padding: var(--section-padding-y) var(--section-padding-x);
-  background: var(--color-surface);
-}
-
-.about-values-container {
-  max-width: var(--container-max);
-  width: 100%;
-  margin: 0 auto;
-}
-
-.about-values-title {
-  font-family: var(--font-sans);
-  font-size: var(--text-h2);
-  font-weight: 700;
-  color: var(--color-text);
-  margin: 0 0 2.5rem 0;
-  text-align: center;
-  letter-spacing: -0.02em;
-}
-
-.about-values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-}
-
-.about-value-item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
-  padding: 2rem;
-  background: var(--color-surface-alt);
+.about-story-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
+  background: var(--mist);
+}
+.about-story-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.about-value-item.fade-in-up {
-  opacity: 1;
-  transform: translateY(0);
+.about-person {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.25rem;
 }
-
-.about-value-item:hover {
-  border-color: var(--color-border-strong);
-  box-shadow: var(--shadow-sm);
+@media (max-width: 480px) {
+  .about-person {
+    flex-direction: column;
+  }
 }
-
-.about-value-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+.about-photo {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-inverse);
-  margin-bottom: 1.25rem;
-  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+  width: 6rem;
+  height: 6rem;
+  border: 2px dashed #b45309;
+  border-radius: 50%;
+  background: #fffbeb;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #78350f;
 }
-
-.about-value-title {
-  font-family: var(--font-sans);
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin: 0 0 0.5rem 0;
-}
-
-.about-value-description {
-  font-family: var(--font-sans);
+.about-role {
+  margin: 0.25rem 0 0.75rem;
   font-size: var(--text-sm);
-  line-height: 1.65;
-  color: var(--color-text-secondary);
-  margin: 0;
+  font-weight: 600;
+  color: var(--teal-600);
 }
-
-@media (max-width: 968px) {
-  .about-overview-section,
-  .about-values-section {
-    padding: var(--section-padding-y) var(--section-padding-x);
-  }
-
-  .about-values-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .about-value-item {
-    padding: 1.5rem;
-  }
+.about-person .card-text + .card-text {
+  margin-top: 0.5rem;
+}
+.about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-weight: 600;
 }

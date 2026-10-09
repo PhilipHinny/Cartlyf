@@ -1,53 +1,36 @@
-"use client"
-
 import { useState, useEffect } from "react"
-import { Link, useNavigate, useLocation } from "react-router-dom"
+import { Link, NavLink, useLocation } from "react-router-dom"
 import { Menu, X } from "lucide-react"
+import { BookingButton } from "./site-ui"
+import { NAV_LINKS } from "../config/site"
 import "../styles/navigation.css"
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [selectedLanguage, setSelectedLanguage] = useState('EN')
-  const navigate = useNavigate()
   const location = useLocation()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    handleScroll()
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const scrollToSection = (id) => {
+  // Close the mobile menu whenever the page changes.
+  useEffect(() => {
     setIsMobileMenuOpen(false)
+  }, [location.pathname, location.search])
 
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        const element = document.getElementById(id)
-        element?.scrollIntoView({ behavior: 'smooth' })
-      }, 100)
-    } else {
-      const element = document.getElementById(id)
-      element?.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  const handleNavClick = (path) => {
-    setIsMobileMenuOpen(false)
-    navigate(path)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  const solid = isScrolled || isMobileMenuOpen
 
   return (
-    <nav className={`nav-container ${isScrolled ? "nav-scrolled" : "nav-transparent"}`}>
+    <nav className={`nav-container ${solid ? "nav-scrolled" : "nav-transparent"}`} aria-label="Main">
       <div className="nav-content">
         <div className="nav-inner">
-          <Link to="/" className="nav-logo-wrapper" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <Link to="/" className="nav-logo-wrapper" aria-label="Cartlyf Technologies home">
             <div className="nav-logo-icon">
-              <img src="/cartlyf-logo.png" className="logo-image" />
+              <img src="/cartlyf-logo.png" className="logo-image" alt="" width="40" height="40" />
             </div>
             <div className="nav-logo-text">
               <span className="nav-logo">Cartlyf</span>
@@ -55,105 +38,38 @@ export default function Navigation() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="nav-links">
-            <Link to="/about" className="nav-link">
-              About
-            </Link>
-            <Link to="/services" className="nav-link">
-              Services
-            </Link>
-            <a href="/#portfolio-snapshot" onClick={(e) => { e.preventDefault(); scrollToSection('portfolio-snapshot'); }} className="nav-link">
-              Our Products
-            </a>
-            <a href="/#focus-areas" onClick={(e) => { e.preventDefault(); scrollToSection('focus-areas'); }} className="nav-link">
-              Focus Areas
-            </a>
-            <a href="/#news" onClick={(e) => { e.preventDefault(); scrollToSection('news'); }} className="nav-link">
-              News
-            </a>
-            {/* <Link to="/team" className="nav-link">
-              Team
-            </Link> */}
-            <Link to="/careers" className="nav-link">
-              Careers
-            </Link>
-            <a href="/#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="nav-link">
-              Contact
-            </a>
-            <a href="/#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="nav-link nav-link-partner">
-              Partnerships
-            </a>
+            {NAV_LINKS.map((link) => (
+              <NavLink key={link.to} to={link.to} className="nav-link">
+                {link.label}
+              </NavLink>
+            ))}
           </div>
 
           <div className="nav-actions">
-            <div className="nav-language-selector">
-              <button
-                className={`lang-button ${selectedLanguage === 'EN' ? 'active' : ''}`}
-                onClick={() => setSelectedLanguage('EN')}
-              >
-                EN
-              </button>
-              <button
-                className={`lang-button ${selectedLanguage === 'RU' ? 'active' : ''}`}
-                onClick={() => setSelectedLanguage('RU')}
-              >
-                RU
-              </button>
-            </div>
+            <BookingButton className="btn btn-primary btn-sm nav-cta" />
             <button
+              type="button"
               className="mobile-menu-button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="mobile-menu">
-            <Link to="/about" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
-              About
-            </Link>
-            <Link to="/services" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
-              Services
-            </Link>
-            <a href="/#portfolio-snapshot" onClick={(e) => { e.preventDefault(); scrollToSection('portfolio-snapshot'); }} className="mobile-link">
-              Our Products
-            </a>
-            <a href="/#focus-areas" onClick={(e) => { e.preventDefault(); scrollToSection('focus-areas'); }} className="mobile-link">
-              Focus Areas
-            </a>
-            <a href="/#news" onClick={(e) => { e.preventDefault(); scrollToSection('news'); }} className="mobile-link">
-              News
-            </a>
-            {/* <Link to="/team" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
-              Team
-            </Link> */}
-            <Link to="/careers" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>
-              Careers
-            </Link>
-            <a href="/#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="mobile-link">
-              Contact
-            </a>
-            <a href="/#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="mobile-link">
-              Partnerships
-            </a>
-            <div className="mobile-language-selector">
-              <button
-                className={`lang-button ${selectedLanguage === 'EN' ? 'active' : ''}`}
-                onClick={() => setSelectedLanguage('EN')}
-              >
-                EN
-              </button>
-              <button
-                className={`lang-button ${selectedLanguage === 'RU' ? 'active' : ''}`}
-                onClick={() => setSelectedLanguage('RU')}
-              >
-                RU
-              </button>
+          <div className="mobile-menu" id="mobile-menu">
+            {NAV_LINKS.map((link) => (
+              <NavLink key={link.to} to={link.to} className="mobile-link">
+                {link.label}
+              </NavLink>
+            ))}
+            <div className="mobile-menu-cta">
+              <BookingButton className="btn btn-primary" />
             </div>
           </div>
         )}

@@ -10,12 +10,12 @@ const positions = [
     department: "Strategy & Innovation",
     type: "Internship · Remote",
     duration: "2 Months",
-    location: "Uganda & Kenya (Remote)",
+    location: "Kenya (Remote)",
     overview:
-      "Drive the market expansion of Cartlyf's diverse product ecosystem. You will work across FLYTS (Mobility), HAPA (Social Discovery), and our Timetable Automation systems to map demand, analyze competitors, and identify cross-product synergies that empower African users.",
+      "Drive the market expansion of Cartlyf's diverse product ecosystem. You will work across FLYTS (Mobility), our Timetable Automation systems and our client services to map demand, analyze competitors, and identify cross-product synergies that empower African users.",
     responsibilities: [
-      "Conduct cross-border market research for FLYTS and HAPA in East Africa (Nairobi, Kampala)",
-      "Develop user acquisition frameworks for HAPA's 'live city vibe' discovery features",
+      "Conduct market research for FLYTS across Kenya and East Africa",
+      "Develop user acquisition frameworks for FLYTS renters and fleet partners",
       "Design and administer structured surveys to 100+ potential users across three industries",
       "Produce a 'Cartlyf Synergy Report' identifying how our products can grow together"
     ],
@@ -37,11 +37,11 @@ const positions = [
     duration: "2 Months",
     location: "Remote",
     overview:
-      "Build the digital soul of Cartlyf. Your mission is to establish HAPA as the go-to app for city discovery and FLYTS as the most trusted name in car rental. You'll create high-energy content that turns users into community advocates.",
+      "Build the digital soul of Cartlyf. Your mission is to establish FLYTS as the most trusted name in car rental. You'll create high-energy content that turns users into community advocates.",
     responsibilities: [
-      "Create and manage viral-ready short-form video content for HAPA on TikTok and Instagram",
+      "Create and manage viral-ready short-form video content for FLYTS on TikTok and Instagram",
       "Develop a 'Trust & Safety' content series for FLYTS to build host and renter confidence",
-      "Execute community engagement plans for HAPA's 'Live Vibe' contributors",
+      "Execute community engagement plans for FLYTS renters and vehicle providers",
       "Design a monthly cross-platform content calendar for all Cartlyf product brands",
       "Monitor and report on community sentiment and viral reach for new product launches"
     ],
@@ -67,9 +67,9 @@ const positions = [
     overview:
       "Optimize the digital discoverability of Cartlyf's product suite. You will own the SEO strategy for FLYTS car hire searches and build the performance marketing foundation for our B2B academic tools and B2C social apps.",
     responsibilities: [
-      "Perform deep keyword research for 'Car Rental Uganda/Kenya' and 'Timetable Automation'",
+      "Perform deep keyword research for 'Car Rental Kenya' and 'Timetable Automation'",
       "Audit and optimize technical SEO and meta-data for Cartlyf.com and product subdomains",
-      "Set up and manage GA4 events and Meta Pixel tracking for HAPA and FLYTS",
+      "Set up and manage GA4 events and Meta Pixel tracking for FLYTS",
       "Write high-ranking, SEO-optimized blog articles that position Cartlyf as a tech leader",
       "Run small-scale A/B tests on Meta/Google Ads to optimize user acquisition costs"
     ],
@@ -90,13 +90,13 @@ const positions = [
     department: "Legal & Ops",
     type: "Internship · Remote",
     duration: "2 Months",
-    location: "Uganda & Kenya (Remote)",
+    location: "Kenya (Remote)",
     overview:
-      "Ensure the scalability and integrity of Cartlyf's marketplaces. You will focus on regulatory compliance for FLYTS and HAPA, ensuring our users are protected and our operations meet the highest legal standards in East Africa.",
+      "Ensure the scalability and integrity of Cartlyf's marketplaces. You will focus on regulatory compliance for FLYTS, ensuring our users are protected and our operations meet the highest legal standards in East Africa.",
     responsibilities: [
-      "Research and document licensing requirements for mobility marketplaces in Uganda/Kenya",
+      "Research and document licensing requirements for mobility marketplaces in Kenya",
       "Develop 'Trust & Safety' guidelines for verify hosts on the FLYTS platform",
-      "Track NITA-U and ODPC data protection compliance for HAPA's user data",
+      "Track ODPC data protection compliance for FLYTS user data",
       "Liaise with insurance providers for commercial car hire protection products",
       "Draft institutional onboarding checklists for Timetable Automation clients"
     ],
@@ -121,7 +121,7 @@ const EMAILJS_FIELDS = [
   { name: "course", label: "Course / Field of Study", type: "text", required: true, placeholder: "e.g. Business Administration" },
   { name: "linkedin", label: "LinkedIn Profile", type: "url", required: false, placeholder: "https://linkedin.com/in/yourprofile" },
   { name: "portfolio", label: "Portfolio / TikTok / Instagram", type: "url", required: false, placeholder: "Link to portfolio or social account" },
-  { name: "impactAnswer", label: "Which Cartlyf product (FLYTS, HAPA, or Timetable Automation) interests you most, and how would you help it grow?", type: "textarea", required: true, placeholder: "Answer in 3–5 sentences..." },
+  { name: "impactAnswer", label: "Which Cartlyf product (FLYTS or Timetable Automation) interests you most, and how would you help it grow?", type: "textarea", required: true, placeholder: "Answer in 3–5 sentences..." },
   { name: "coverLetter", label: "Cover Letter", type: "textarea", required: true, placeholder: "Tell us why you are the right fit for this role (max 1 page)..." },
 ];
 
@@ -154,7 +154,7 @@ function ApplicationModal({ position, onClose }) {
 
     const formElement = e.currentTarget;
     const formData = new FormData(formElement);
-    
+
     // Add metadata for better email organization in Formspree
     formData.append("_subject", `New Application: ${position.title} - ${formData.get("fullName")}`);
     formData.append("Role", position.title);
@@ -175,8 +175,8 @@ function ApplicationModal({ position, onClose }) {
         setFileName("");
       } else {
         const data = await response.json();
-        const errorMessage = data.errors 
-          ? data.errors.map(error => error.message).join(", ") 
+        const errorMessage = data.errors
+          ? data.errors.map(error => error.message).join(", ")
           : "Submission failed. Please check all fields and try again.";
         alert(errorMessage);
         setStatus("idle");
@@ -207,7 +207,7 @@ function ApplicationModal({ position, onClose }) {
             <div className="success-icon">✓</div>
             <h3>Application Received!</h3>
             <p>
-              Thank you for applying for the **{position.title}** position. 
+              Thank you for applying for the **{position.title}** position.
               We will review your application and get back to you soon.
             </p>
             <button className="btn-primary" onClick={onClose}>
@@ -219,32 +219,32 @@ function ApplicationModal({ position, onClose }) {
             <div className="instructions-card">
               <h3>How to Apply</h3>
               <p className="instructions-intro">
-                Please follow the steps below to submit your application for the 
+                Please follow the steps below to submit your application for the
                 <strong> {position.title}</strong> role:
               </p>
-              
+
               <ul className="instructions-list">
                 <li>
-                  <strong>1. Prepare Documents:</strong> Have your CV/Resume and a 
+                  <strong>1. Prepare Documents:</strong> Have your CV/Resume and a
                   brief Cover Letter ready in PDF format.
                 </li>
                 <li>
-                  <strong>2. Answer the Growth Question:</strong> Which Cartlyf product 
-                  (FLYTS, HAPA, or Timetable Automation) interests you most, and how 
+                  <strong>2. Answer the Growth Question:</strong> Which Cartlyf product
+                  (FLYTS or Timetable Automation) interests you most, and how
                   would you help it grow?
                 </li>
                 <li>
-                  <strong>3. Send Email:</strong> Email your documents and answer to 
+                  <strong>3. Send Email:</strong> Email your documents and answer to
                   <a href="mailto:careers@cartlyf.com"> careers@cartlyf.com</a>.
                 </li>
                 <li>
-                  <strong>4. Subject Line:</strong> Use the subject: 
+                  <strong>4. Subject Line:</strong> Use the subject:
                   <code> INTERNSHIP – {position.title} – [Your Name]</code>
                 </li>
               </ul>
 
               <div className="instructions-footer">
-                <a 
+                <a
                   href={`mailto:careers@cartlyf.com?subject=INTERNSHIP – ${position.title} – [Your Name]&body=Hello Cartlyf Team,%0D%0A%0D%0AI am applying for the ${position.title} position.%0D%0A%0D%0A[My Answer to the Growth Question]:%0D%0A%0D%0A[Link to Portfolio/LinkedIn]:%0D%0A%0D%0A(Please attach your CV and Cover Letter to this email.)`}
                   className="btn-primary btn-full"
                 >
@@ -412,13 +412,10 @@ export default function Careers() {
 
   return (
     <div className="careers-page">
-      <SeoHead 
-        title="Careers & Internships | Cartlyf Technologies — Growth Cohort 2026"
-        description="Join the Cartlyf Technologies growth cohort. We are looking for interns in market research, social media, SEO, and regulatory compliance to scale FLYTS and HAPA."
-        canonical="https://www.cartlyftechnologies.com/careers"
-        ogTitle="Build the Future of Digital Africa — Cartlyf Careers"
-        ogDescription="Join our 2-month growth cohort and help launch FLYTS, HAPA, and Timetable Automation systems across East Africa. High-impact tech roles in Kenya & Uganda."
-        ogUrl="https://www.cartlyftechnologies.com/careers"
+      <SeoHead
+        title="Careers and Internships"
+        description="Join the Cartlyf Technologies growth cohort. Internships in market research, social media, SEO and regulatory compliance at a Kenyan technology company."
+        path="/careers"
       />
       {/* Hero */}
       <section className="careers-hero">
@@ -427,12 +424,12 @@ export default function Careers() {
           Build the Future of<br />Digital Africa
         </h1>
         <p className="hero-subtext fade-in-up" style={{ animationDelay: "0.2s" }}>
-          Cartlyf Technologies is scaling a multi-product ecosystem across mobility,
-          social discovery, and education. Join our 2-month growth cohort and help
-          us launch FLYTS, HAPA, and our Timetable Automation systems in East Africa.
+          Cartlyf Technologies is scaling a multi-product ecosystem across mobility
+          and education. Join our 2-month growth cohort and help
+          us launch FLYTS and our Timetable Automation systems in East Africa.
         </p>
         <div className="hero-stats fade-in-up" style={{ animationDelay: "0.3s" }}>
-          <div className="stat"><span className="stat-num">3</span><span className="stat-label">Core Products</span></div>
+          <div className="stat"><span className="stat-num">2</span><span className="stat-label">Core Products</span></div>
           <div className="stat-divider" />
           <div className="stat"><span className="stat-num">4</span><span className="stat-label">Growth Roles</span></div>
           <div className="stat-divider" />
@@ -453,7 +450,7 @@ export default function Careers() {
             <p>
               Cartlyf isn't just one app. We are a technology builder creating solutions
               for high-friction markets. From digitizing car rentals with **FLYTS** to
-              capturing real-time city discovery with **HAPA**, we build products that
+              clash-free school timetables, we build products that
               solve practical problems.
             </p>
             <p>

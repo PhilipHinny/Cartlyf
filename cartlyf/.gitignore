@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Brainstorming companion mockups
+.superpowers/
+
+# Screenshots written by npm run verify:mobile
+verify-screens/
