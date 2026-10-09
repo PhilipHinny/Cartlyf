@@ -15,7 +15,8 @@
     "images:add": "node scripts/images.mjs add",
     "verify:images": "node scripts/verify/images.mjs",
     "verify": "npm run verify:contrast && npm run verify:images && npm run build && npm run verify:dist && npm run verify:mobile",
-    "images:variants": "node scripts/images.mjs variants"
+    "images:variants": "node scripts/images.mjs variants",
+    "postbuild": "node scripts/copy-404.mjs"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",

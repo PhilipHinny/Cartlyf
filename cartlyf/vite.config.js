@@ -34,7 +34,8 @@ const staticRoutes = [
   '/privacy',
 ]
 
-const noindexRoutes = ['/credits']
+// '/404' has no route, so it renders Page not found; scripts/copy-404.mjs turns it into dist/404.html.
+const noindexRoutes = ['/credits', '/404']
 
 const indexedRoutes = [
   ...staticRoutes,
